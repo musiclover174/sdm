@@ -1,0 +1,12 @@
+include bemto/bemto.pug
+
+doctype html
+html
+  head(lang="ru")
+    include layout/__head
+  body.index
+    include layout/__header
+  
+    +b('main').main
+       
+    include layout/__scripts

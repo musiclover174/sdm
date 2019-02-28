@@ -1,0 +1,11 @@
+.h-anim
+  pos relative
+  opacity .1
+  b -20px
+  transition 1s opacity, 1s bottom
+  &[visible]
+    b 0
+    opacity 1
+    .common__title:before
+      l 10px
+      t 10px
