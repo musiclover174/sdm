@@ -1,4 +1,5 @@
-include bemto/bemto.pug
+include bemto/bemto
+include mixins/index
 
 doctype html
 html
@@ -8,5 +9,103 @@ html
     include layout/__header
   
     +b('main').main
+
+      +b('section').banner.js-banner
+        +e('span').bg(style="background-image: url('img/banner.jpg')")
+        section.container
+          section.h-wrapper
+            .h-col1
+            .h-col11
+              +e('p').title Таможенное оформление и&nbsp;доставка грузов от 100 кг из Европы и Азии
+              +btn('Заказать расчет')(class="banner-btn btn btn_f18")
+            +e('span').down Крутите вниз
+      
+      +b('section').types
+        section.container
+          section.h-wrapper
+            .h-col1
+            +e('aside').about.h-col3
+              +e('p').about-title Надежно. Выгодно. 
+                span Быстро.
+              +e.about-text
+                p Для успешного решения задач наших клиентов мы собрали команду из опытных специалистов.
+                p Большинство сотрудников CDM Group работало как в логистических провайдерах, так и в штате таможенных органах. Это позволяет нам глубже понимать логистические процессы и обеспечивать клиентам максимальную оперативность и высокий уровень сервиса.
+            +e('ul').list.h-col8
+              +e.item
+                +e('ul').item-namelist
+                  +e.item-name
+                    +e.item-href(href="#") Морская доставка
+                +e.item-icon(src="img/feat1.png")
+              +e.item
+                +e('ul').item-namelist
+                  +e.item-name
+                    +e.item-href(href="#") Авиадоставка
+                +e.item-icon(src="img/feat2.png")
+              +e.item
+                +e('ul').item-namelist
+                  +e.item-name
+                    +e.item-href(href="#") ЖД доставка
+                +e.item-icon(src="img/feat3.png")
+              +e.item
+                +e('ul').item-namelist
+                  +e.item-name
+                    +e.item-href(href="#") Автодоставка
+                +e.item-icon(src="img/feat4.png")
+              +e.item
+                +e('ul').item-namelist
+                  +e.item-name
+                    +e.item-href(href="#") Таможенное оформление
+                  +e.item-name
+                    +e.item-href(href="#") Поиск поставщиков в Китае
+                +e.item-icon(src="img/feat5.png")
+              +e.item
+                +e('ul').item-namelist
+                  +e.item-name
+                    +e.item-href(href="#") Бухгалтерские услуги
+                  +e.item-name
+                    +e.item-href(href="#") Юридические услуги
+                +e.item-icon(src="img/feat6.png")
+
+      +b('section').info
+        section.container
+          section.h-wrapper
+            .h-col1
+            +e.contacts.h-col8
+              +e('p').contacts-title Контакты
+              +e('ul').contacts-tabs
+                +e('li').contacts-tab
+                  +e.contacts-href.active.js-contacts-tab(type="button", data-id="1" aria-label="Головной офис") Головной офис
+                +e('li').contacts-tab
+                  +e.contacts-href.js-contacts-tab(type="button", data-id="2" aria-label="Филиал в Москве") Филиал в Москве
+                +e('li').contacts-tab
+                  +e.contacts-href.js-contacts-tab(type="button", data-id="3" aria-label="Филиал в Санкт-Петербурге") Филиал в Санкт-Петербурге
+                +e('li').contacts-tab
+                  +e.contacts-href.js-contacts-tab(type="button", data-id="4" aria-label="Склад") Склад
+              +e('ul').contacts-blocks
+                +e.contacts-block.js-contacts-block.active(data-id="1")
+                  +e.block
+                    +e('p').block-title Адрес
+                    +e('p').block-text Владивосток, улица Стрельникова, 3Б, офис 501
+                  +e.block
+                    +e('p').block-title Телефон
+                    +e('p').block-text 
+                      +e.block-text(href="+74232055659") +7 (423) 205-56-59
+                  +e.block
+                    +e('p').block-title Часы работы
+                    +e('p').block-text 09:00 – 20:00 (GTM +10)
+                  +e.block
+                    +e('p').block-title Электронная почта
+                    +e('p').block-text 
+                      +e.block-mail(href="mailto:info@cdm.com") info@cdm.com
+            +e('aside').news.h-col3
+              +e.news-title(href="#") Новости
+              +e('ul').news-list
+                +e.news-item
+                  +e('p').news-date 03 декабря
+                  +e.news-href(href="#") Теперь для хранения груза у нас есть складские комплексы в России и Китае
+                +e.news-item
+                  +e('p').news-date 29 ноября
+                  +e.news-href(href="#") Рассчитаем выгодный способ поставки и таможенного офрмления онлайн
        
+    include layout/__footer
     include layout/__scripts

@@ -68,10 +68,8 @@ function scrollTo(to, duration) {
 function visChecker(el) {
   const rect = el.getBoundingClientRect();
   const wHeight = window.innerHeight || document.documentElement.clientHeight;
-  const wWidth = window.innerWidth || document.documentElement.clientWidth;
   return (
-    rect.bottom - el.offsetHeight * 0.35 <= wHeight
-    && rect.right <= wWidth
+    rect.top <= wHeight * 0.65
   );
 }
 
@@ -100,19 +98,11 @@ function resizeWatcher() {
   }
 }
 
-function elemVisCheck(elArray) {
+function elemVisCheck() {
   window.addEventListener('scroll', () => {
-    if (elArray.length) {
-      elArray.forEach((item) => {
-        if (document.querySelectorAll(item).length) {
-          document.querySelectorAll(item).forEach((elem) => {
-            if (visChecker(elem)) {
-              elem.setAttribute('visible', true)
-            }
-          });
-        }
-      });
-    }
+    qsAll('.h-anim').forEach((elem) => {
+      if (visChecker(elem)) elem.setAttribute('visible', true);
+    });
   });
 }
 

@@ -1,0 +1,223 @@
+.logo
+  &__wrapper
+    pos fixed
+    t 50%
+    l 39px
+    mt -46px
+    z-index 5
+    &.dark ^[0]__img_dark
+      opacity 1
+  &__img
+    max-width 100%
+    &_dark
+      pos absolute
+      l 0
+      t 0
+      opacity 0
+      transition .7s opacity
+    
+
+.header
+  pos fixed
+  t 0
+  l 78px
+  r 0
+  z-index 5
+  padding 18px 0
+  transition .7s top
+  &:not(.fixed)
+    t 15px
+  &:before
+    content ""
+    pos absolute
+    l 0
+    r 0
+    b 0
+    h 0
+    bgc $gblue
+    transition .7s height
+  &.fixed:before
+    h 100%
+  &__lang
+    dfv()
+    pos relative
+    &-href
+      pos relative
+      z-index 1
+      c white
+      fontify 16px 500 19px
+      & + &
+        mt 5px
+      &:before
+        content ""
+        pos absolute
+        z-index -1
+        l 0
+        r 0
+        b 0
+        h 1px
+        bgc alpha(white, .25)
+        transition .7s height, .3s .7s left, .3s .7s right, .3s .7s background-color
+      &:hover:before,
+      &.active:before
+        h 100%
+        bgc $red
+        l -3px
+        r -3px
+        transition .7s .3s height, .3s left, .3s right, .3s background-color
+  &__curr
+    dfv()
+    pos relative
+    &-elem
+      c white
+      fontify 16px 500 19px
+      white-space nowrap
+      & + &
+        mt 5px
+  &__main
+    df(center, space-between)
+    pl 70px
+  &__phone
+    pos relative
+    c white
+    fontify 16px 500 18px
+    &:before
+      content ""
+      pos absolute
+      t 1px
+      l -23px
+      size(14px, 15px)
+      background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAPCAMAAADjyg5GAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABHVBMVEX///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////9YteYkAAAAXnRSTlMAl9lzBZ38xBgtt/3HEEvhqD7tuAGx/h7jlQZT6WcvgfuPvLRI8MF/9Qd86HZYHG65CuLaHaKL3GklXmuS76ECzCpCC4A6QBIJ2N4VhlA195ErziAz+KWQ59+C1etOQkWEFgAAAAFiS0dEAIgFHUgAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAC2SURBVAjXY2CAAkYmZhYQzcrGzgGkOLm4eXgZGPji+OMEwPKCQsIiDKLsIlxi4gwMEpJSgmLSDDKyDMxxcgwM8gqKDErKDArSKqpqIkC16hqaWvwM2jpacbogrSpxevoaDFwGhkbGICtMTFnMzBksuC2t4qwhdlvbMPDa2tk7yDg6OUOd4yLm6hYXF2fuDuF6eHp5+/j6+QdApQNVg4KBbrWFuT7EKDQsPCISxmXgjYoOjYkFsQA5PRdOr9Rh9gAAAABJRU5ErkJggg==') no-repeat center
+
+.burger
+  @media $LandscapeMediumMin
+    dn()
+  ml 30px
+  &__shadow
+    pos fixed
+    l 0
+    t 0
+    transform translateY(100%)
+    transition 1s transform, .7s opacity
+    will-change transform
+    opacity .2
+    bgc white
+    size 100%
+    z-index 10
+  &__button
+    cursor pointer
+    w 25px
+    h 25px
+    pos relative
+    z-index 11
+    &:before
+      content ""
+      pos absolute
+      t 0
+      r 0
+      w 25px
+      h 1px
+      bgc white
+      transition .5s width, .5s background, .5s transform, .5s top
+    &:after
+      content ""
+      pos absolute
+      b 0
+      r 0
+      w 25px
+      h 1px
+      bgc white
+      transition .5s width, .5s background, .5s transform, .5s top  
+    &-meat
+      content ""
+      pos absolute
+      t 50%
+      r 0
+      w 25px
+      h 1px
+      bgc white
+      transition .5s width, .5s background, .5s transform, .5s top  
+    &.open
+      &:before
+        animation burger-top 1s ease-in-out forwards
+      &:after
+        animation burger-bottom 1s ease-in-out forwards
+      & ^[-1]-meat
+        opacity 0
+      & + ^[0]__shadow
+        opacity 1
+        transform translateY(0)
+    &.open.remove
+      &:before
+        animation burger-top-invert 1s ease-in-out forwards
+      &:after
+        animation burger-bottom-invert 1s ease-in-out forwards
+      & ^[-1]-meat
+        opacity 1
+        transition .4s opacity .6s
+
+html:not(.touchevents)
+  .burger
+    &:not(.open):hover
+      &:before
+        animation burger-hover 1s infinite ease-in-out alternate
+      &:after
+        animation burger-hover 1s infinite ease-in-out alternate forwards 400ms
+    &:not(.open):hover &-meat
+      animation burger-hover 1s infinite ease-in-out alternate forwards 200ms
+
+@keyframes burger-hover
+  0%
+    w 100%
+  50%
+    w 50%
+  100%
+    w 100%
+      
+@keyframes burger-top
+  0%
+    t 0
+  40%
+    t 12px
+  60%
+    t 12px
+    transform rotate(0)
+  100%
+    t 12px
+    transform rotate(45deg)
+    
+@keyframes burger-bottom
+  0%
+    b 0
+  40%
+    b 12px
+  60%
+    b 12px
+    transform rotate(0)
+  100%
+    b 12px
+    transform rotate(-45deg)
+
+@keyframes burger-top-invert
+  0%
+    t 12px
+    transform rotate(45deg)
+  40%
+    t 12px
+    transform rotate(0)
+  60%
+    t 12px
+  100%
+    t 0
+    
+@keyframes burger-bottom-invert
+  0%
+    b 12px
+    transform rotate(-45deg)
+  40%
+    b 12px
+    transform rotate(0)
+  60%
+    b 12px
+  100%
+    b 0

@@ -1,0 +1,42 @@
+.types
+  padding 100px 0
+  &__about
+    mt -11px
+    &-title
+      c $dark
+      fontify 60px 700 64px
+      mb 33px
+      ml -4px
+      span
+        c $red
+    &-text
+      pr 20px
+  &__list
+    df(stretch, flex-start)
+    flex-wrap wrap
+  &__item
+    w 50%
+    pos relative
+    border-right 1px solid #eaebf3
+    border-bottom 1px solid #eaebf3
+    padding 22px 48px
+    min-height 234px
+    &:nth-child(1),
+    &:nth-child(2)
+      border-top 1px solid #eaebf3
+    &:nth-child(2n-1)
+      border-left 1px solid #eaebf3
+    &-namelist
+      dfv()
+      max-width 275px
+    &-name
+      & + &
+        mt 15px
+    &-href
+      c $dark
+      fontify 20px 500 30px
+      bb_invert()
+    &-icon
+      pos absolute
+      r 41px
+      b 41px

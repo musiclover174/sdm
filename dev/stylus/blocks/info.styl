@@ -1,0 +1,84 @@
+.info
+  padding 88px 0 93px
+  mt 79px
+  &__news
+    mt 26px
+    &-title
+      c $dark
+      fontify 30px 500 32px
+      bb()
+    &-list
+      mt 42px
+      pr 20px
+    &-item
+      & + &
+        mt 38px
+    &-date
+      c $grey
+      fontify 15px 400 19px
+      mb 10px
+    &-href
+      c $dark
+      fontify 16px 500 26px
+      bb()
+  &__contacts
+    &-title
+      c $dark
+      fontify 60px 700 64px
+      ml -4px
+      mb 37px
+    &-tabs
+      df()
+      flex-wrap wrap
+      ml -31px
+      w calc(100% + 31px)
+    &-tab
+      ml 31px
+      mb 10px
+    &-href
+      pos relative
+      z-index 1
+      color $dark
+      fontify 18px 500 20px
+      white-space nowrap
+      bb(1px, dotted, alpha($dark, .25))
+      &:before
+        content ""
+        pos absolute
+        z-index -1
+        l -3px
+        r -3px
+        b 0
+        h 0px
+        bgc $red
+        transition .7s height
+      &:hover
+      &.active
+        border-color transparent
+      &.active
+        c white
+        &:before
+          h 100%
+    &-blocks
+      mb -37px
+      mt 50px
+    &-block:not(.active)
+      dn()
+    &-block.active
+      df(flex-start, space-between)
+      flex-wrap wrap
+  &__block
+    w calc(50% - 18px)
+    mb 37px
+    &-title
+      c $grey
+      fontify 15px 400 19px
+      mb 10px
+    &-text
+      c $dark
+      fontify 16px 400 26px
+    &-mail
+      c $dark
+      fontify 16px 400 26px
+      bb()
+    

@@ -1,3 +1,62 @@
 include ../bemto/bemto.pug
+include ../mixins/index
 
-+b('header').header
+a(href="#").logo__wrapper.js-logo
+  img(src="img/logo.png").logo__img
+  img(src="img/logo_dark.png").logo__img.logo__img_dark
+
++b('header').header.js-header
+  section.container
+    section.h-wrapper
+      .h-col1
+      +e('aside').lang.h-col1
+        +e.lang-href(href="#") Eng
+        +e.lang-href(href="#") Chn
+      +e('aside').curr.h-col1
+        +e.curr-elem USD 66,95
+        +e.curr-elem EUR 75,20
+      +e.main.h-col9
+        +e.phone(href="tel:88001000159") 8-800-1000-159
+        +b('nav').menu
+          +e('ul').list
+            +e.item
+              +e.href._havesub._active(href="#") Компания
+              +e('ul').sublist
+                +e.sublist-item._spacer
+                +e.sublist-item
+                  +e.sublist-href(href="#") О компании
+                +e.sublist-item
+                  +e.sublist-href(href="#") Новости
+                +e.sublist-item
+                  +e.sublist-href(href="#") Кейсы
+                +e.sublist-item
+                  +e.sublist-href(href="#") Вакансии
+                +e.sublist-item
+                  +e.sublist-href(href="#") Фотогалерея
+                +e.sublist-item._spacer
+            +e.item
+              +e.href._havesub(href="#") Услуги
+              +e('ul').sublist
+                +e.sublist-item._spacer
+                +e.sublist-item
+                  +e.sublist-href(href="#") Доставка
+                +e.sublist-item
+                  +e.sublist-href(href="#") Таможенное оформление
+                +e.sublist-item
+                  +e.sublist-href(href="#") Бухгалтерские услуги
+                +e.sublist-item
+                  +e.sublist-href(href="#") Юридические услуги
+                +e.sublist-item
+                  +e.sublist-href(href="#") Поиск поставщиков в&nbsp;Китае
+                +e.sublist-item._spacer
+            +e.item
+              +e.href(href="#") Новости
+            +e.item
+              +e.href(href="#") Отзывы
+            +e.item
+              +e.href(href="#") Блог
+            +e.item
+              +e.href(href="#") Контакты
+            +e.item._search
+              +e.search(type="button", aria-label="Поиск")
+        +btn('Отследить груз', true, '#track')(class="header__btn btn")

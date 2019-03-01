@@ -1,0 +1,20 @@
+.btn
+  pos relative
+  z-index 1
+  ib()
+  color white
+  padding 0 23px
+  fontify 16px 500 43px
+  &_f18
+    fontify 18px 500 45px
+    padding 0 24px
+  &:before
+    content ""
+    pos absolute
+    z-index -1
+    full()
+    bgc $red
+    will-change transform
+    transition .7s transform
+  &:hover:before
+    transform skewX(-8deg)

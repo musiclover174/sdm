@@ -1,6 +1,47 @@
 include ../bemto/bemto.pug
+include ../mixins/index
 
 +b('footer').footer
-  +e.dextra(href="https://www.dextra.ru/", target="_blank")
-    span dextra
-    | Разработка<br>сайта
+  +e('section').top
+    section.container
+      section.h-wrapper
+        .h-col1
+        .h-col5
+          +e.info
+            +e('p').text Владивосток, улица Стрельникова, 3Б, офис 501, с&nbsp;09:00 до 20:00 (GTM +10)
+          +e.info
+            +e.text(href="tel:+74232055659") +7 (423) 205-56-59
+          +e.info
+            +e.mail(href="mailto:info@cdm.com") info@cdm.com
+          +btn('Обратная связь', true, '#feed')(class="footer__btn btn")
+        .h-col2
+          +e('nav').nav
+            +e.nav-href._main(href="#") Компания
+            +e.nav-href(href="#") О компании
+            +e.nav-href(href="#") Новости
+            +e.nav-href(href="#") Кейсы
+            +e.nav-href(href="#") Вакансии
+            +e.nav-href(href="#") Фотогалерея
+        .h-col2
+          +e('nav').nav
+            +e.nav-href._main(href="#") Услуги
+            +e.nav-href(href="#") Доставка
+            +e.nav-href(href="#") Таможенное оформление
+            +e.nav-href(href="#") Бухгалтерские услуги
+            +e.nav-href(href="#") Юридические услуги
+            +e.nav-href(href="#") Поиск поставщиков в&nbsp;Китае
+        .h-col2
+          +e('nav').nav
+            +e.nav-href._main(href="#") Отзывы
+            +e.nav-href._main(href="#") Блог
+            +e.nav-href._main(href="#") Контакты
+  +e('section').bottom
+    section.container
+      section.h-wrapper.h-wrapper_justify
+        .h-col1
+        .h-col11
+          +e('section').bottom-content
+            +e('p').copy © CDM Group LLC, 2018
+            +e.dextra(href="https://www.dextra.ru/", target="_blank")
+              span dextra
+              | Разработка<br>сайта

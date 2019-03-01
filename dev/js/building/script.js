@@ -2,7 +2,7 @@ import {
   resizeWatcher, elemVisCheck, qsAll, qs,
 } from './modules/helpers';
 
-// import Index from './modules/index';
+import Index from './modules/index';
 // import Burger from './modules/burger';
 // import Contacts from './modules/contacts';
 // import Forms from './modules/forms';
@@ -14,19 +14,28 @@ import {
 // import Partners from './modules/partners';
 
 document.addEventListener('DOMContentLoaded', () => {
+
+  const headerEl = qs('.js-header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > screen.height / 3) {
+      headerEl.classList.add('fixed');
+    } else {
+      headerEl.classList.remove('fixed');
+    }
+  });
+
+  if (qsAll('.h-anim').length) elemVisCheck();
+
   // const burger = new Burger();
-  const elVisArray = ['.about__feat'];
-  // if (document.body.classList.contains('index')) {
-  //   const index = new Index(
-  //     {
-  //       bannerClass: '.js-banner',
-  //       feedsClass: '.js-feeds',
-  //       stickyEl: '.js-isticky',
-  //       stickyParent: '.js-isticky-parent',
-  //       realizedElem: '.js-realized-elem',
-  //     },
-  //   );
-  // }
+  if (document.body.classList.contains('index')) {
+    const index = new Index(
+      {
+        logoClass: '.js-logo',
+        contactsTabClass: '.js-contacts-tab',
+        contactsBlockClass: '.js-contacts-block',
+      },
+    );
+  }
 
   // if (qs('.js-realized-elem')) {
   //   const realized = new Realized('.js-realized-elem');
@@ -100,7 +109,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // }
 
   resizeWatcher();
-  elemVisCheck(elVisArray);
   let eventScroll;
   try {
     eventScroll = new Event('scroll');

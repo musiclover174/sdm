@@ -1,0 +1,46 @@
+.banner
+  pos relative
+  z-index 1
+  df(flex-end, flex-start)
+  h 100vh
+  pb 100px
+  bgc $blue
+  &__title
+    max-width 1040px
+    c white
+    fontify 72px 700 76px
+    mb 39px
+    ml -4px
+  &__bg
+    pos absolute
+    l 0
+    t 0
+    z-index -1
+    size 100%
+    background-position left center
+    background-repeat no-repeat
+    background-size cover
+    opacity .35
+  .h-col11
+    pos relative
+  &__down
+    pos absolute
+    z-index 1
+    b 32px
+    r 31px
+    c white
+    fontify 16px 500 16px
+    pl 50px
+    transform rotate(-90deg)
+    transform-origin 0 100%
+    &:before
+      content ""
+      pos absolute
+      l 0
+      t 9px
+      bgc white
+      background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAABAQMAAACWk37QAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAA1BMVEX///+nxBvIAAAAAWJLR0QAiAUdSAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAAtJREFUCNdjYAABAAAGAAFm9MlsAAAAAElFTkSuQmCC") no-repeat 0 0
+      size(40px, 1px)
+      animation line 2s infinite ease-in-out
+      transition 0.7s background
+

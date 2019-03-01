@@ -1,8 +1,63 @@
 .footer
+  bgc $blue
+  &__top
+    padding 52px 0 57px
+  &__info
+    & + &
+      mt 12px
+  &__text
+    c white
+    fontify 16px 400 26px
+    max-width 410px
+  &__mail
+    c white
+    fontify 16px 400 26px
+    bb(1px, solid, alpha(white, .25))
+  &__btn
+    mt 44px
+  &__nav
+    overflow hidden
+    pt 4px
+    max-width 185px
+    @media $PortraitMedium
+      mb 40px
+    &-href
+      float left
+      clear both
+      color alpha(white, .5)
+      fontify 14px 400 18px
+      transition .7s color
+      &:not(&_main):hover, 
+      &:not(&_main).active
+        color white
+      &:not(&_main) + &:not(&_main)
+        mt 20px
+      &_main
+        color white
+        fontify 16px 600 19px
+        &:hover,
+        &.active
+          color $red
+        &:not(:first-child)
+          mt 40px
+      &_main + &
+        mt 24px
+      &_main + &_main
+        mt 43px
+  &__bottom
+    df(center, flex-start)
+    h 79px
+    bgc $gblue
+    &-content
+      df(center, space-between)
+      pr 55px
+  &__copy
+    c white
+    fontify 16px 500 19px
   &__dextra
     pos relative
     color silver
-    font-family Verdana, Geneva, sans-serif
+    font-family Arial
     fontify 9px 400 14px
     text-transform uppercase
     letter-spacing 0.18em
@@ -12,7 +67,7 @@
       pos absolute
       t 3px
       r calc(100% + 10px)
-      bgc #dfdfdf
+      bgc $red
       color white
       font-family Arial
       fontify 12px 900 21px
@@ -22,4 +77,4 @@
       padding 0 6px
       transition 0.7s background
     &:hover span
-      background-color $green
+      background-color alpha($red, .8)

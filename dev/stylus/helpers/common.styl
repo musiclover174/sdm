@@ -4,13 +4,12 @@ body
 body
   overflow-x hidden
   overflow-y scroll
-
-body:not(.index) .main
-  background url('../i/bg-decor.png') repeat-y top center
+  pl 78px
+  bgc white
 
 .container
   w 100%
-  max-width 1270px
+  max-width 1540px
   padding 0 50px
   margin 0 auto
   @media $desktopMax
@@ -24,149 +23,7 @@ body:not(.index) .main
     padding 0 15px
   &_rel
     pos relative
-.main
-  oh()
-  pb 100px
-  &_index
-    @media $LandscapeMin
-      pt 60px
-  &:not(&_index)
-    pt 70px
-    @media $LandscapeMin
-      pt 110px
-  @media $LandscapeMin
-    pb 60px
-  h1:not([class])
-    color $blue
-    fontify 60px 900 66px
-    margin 63px 0 48px
-    text-align center
-    @media $desktopMedium
-      fontify 50px 700 50px
-    @media $PortraitMax
-      fontify 36px 700 40px
-  h2:not([class])
-    color $blue
-    fontify 44px 700 50px
-    margin 54px 0 -3px
-    @media $desktopMedium
-      fontify 40px 700 44px
-    @media $PortraitMax
-      fontify 30px 700 34px
-  h3:not([class])
-    color $blue
-    fontify 32px 700 38px
-    margin 56px 0 -2px
-    @media $PortraitMax
-      fontify 24px 700 30px
-  h4:not([class])
-    color $blue
-    fontify 24px 700 30px
-    margin 56px 0 20px
-  iframe:not([class]),
-  img:not([class])
-    margin 7px 0
-    max-width 100%
-  ul:not([class])
-    list-style  none
-    margin -10px 0 20px
-  ul:not([class]) li
-    pl 32px
-    pos relative
-    fontify 16px 400 26px
-  ul:not([class]) li + li
-    mt 15px
-  ul:not([class]) > li:before
-    content ""
-    pos absolute
-    l 0
-    t 9px
-    size 7px
-    bgc $red
-  ol:not([class])
-    list-style none
-    margin -11px 0 20px
-    counter-reset myCounter
-  ol:not([class]) li
-    pl 32px
-    pos relative
-    fontify 16px 400 26px
-  ol:not([class]) li + li
-    mt 15px
-  ol:not([class]) > li:before
-    counter-increment myCounter
-    content counter(myCounter)"."	
-    pos absolute
-    l 0
-    t 0
-    w 32px
-    pr 9px
-    color $red
-    fontify 16px 700 26px
-  p:not([class])
-    fontify 16px 400 26px
-    margin 25px 0
-  a:not([class])
-    c $blue
-    border-bottom 1px solid alpha($blue, .4)
-    transition .5s border
-    &:hover
-      border-color transparent
- 
-  *:not([class]):not(span):first-child
-    margin-top 0 !important
-  *:not([class]):not(span):last-child
-    margin-bottom 0 !important
 
-  table
-    tbody
-      border 2px solid $gblue
-      border-top 0
-    th
-      c white
-      fontify 16px 700 26px
-      bgc $blue
-      padding 17px 24px
-      text-align left
-    td
-      c black
-      padding 12px 24px
-      fontify 16px 400 26px
-      text-align center
-      border 1px solid $gblue
-
-input::-webkit-input-placeholder
-  color alpha(black, .5)
-input::-moz-placeholder
-  color alpha(black, .5)
-input:-ms-input-placeholder
-  color alpha(black, .5)
-    
-div[class\^="table-scroller"]
-  overflow auto
-  pos relative
-  pl 1px
-  margin -4px 0 33px
-  @media $desktopMax
-    w 100%
-
-.text
-  padding 62px 100px
-  box-shadow 0 3px 43px rgba(0, 0, 0, 0.08)
-  @media $desktopMax
-    padding 52px 60px
-  @media $LandscapeMedium
-    box-shadow none
-    mt 0
-    padding 0
-  &__content
-    max-width 770px
-    margin 0 auto
-    @media $desktopMedium
-      max-width 670px
-    @media $LandscapeMedium
-      max-width 100%
-    
 .common
   &__title
     pos relative
@@ -286,97 +143,22 @@ div[class\^="table-scroller"]
       ml 11px
       size 6px 8px
       background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAICAQAAABwz0azAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfjARcMMxxF2kUBAAAARElEQVQI113MsQmAQADF0M9VziI3g1u4x43iHnbOoOvYWsmzEBFNFwiJatOLSCzYDbd0ZhxGiSgmnFrJi1/2GVTrs74AcOE7wetvz7gAAAAASUVORK5CYII=') no-repeat center
-  
-.fakecheckbox
-  ib()
-  pos relative
-  &__label
-    ib()
-    color alpha(black, .4)
-    fontify 14px 300 20px
-    pos relative
-    pl 34px
-    pt 2px
-    &:before 
-      content ""
-      pos absolute
-      l 0px
-      t 1px
-      size 18px
-      border 1px solid #e3e3e3
-      cursor pointer
-      transition .5s border
-    &:after
-      content ""
-      pos absolute
-      size 11px 9px
-      background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAJCAMAAADTuiYfAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAQlBMVEXxFR3xFR3xFR3xFR3xFR3xFR3xFR3xFR3xFR3xFR3xFR3xFR3xFR3xFR3xFR3xFR3xFR3xFR3xFR3xFR3xFR3///+/okeeAAAAFHRSTlMAILwd37veHgiSFpPUNhXT3dwcuUr5jKcAAAABYktHRBXl2PmjAAAACXBIWXMAAAsSAAALEgHS3X78AAAAB3RJTUUH4wEXDCAG2Vf96QAAADVJREFUCNdjYIACRiZmOJNFhBXBZGNHYXJwcsFFuUV4eGEK+PhFREQEoGr5BOFMBgYhYSgTAFSJAfXKQ3X+AAAAAElFTkSuQmCC') no-repeat center
-      l 5px
-      t 7px
-      opacity 0
-      cursor pointer
-      transition .5s opacity
-    a
-      color inherit
-      border-bottom 1px solid $blue
-      transition .7s border
-      &:hover
-        border-color transparent
-  &__truecheck
-    pos absolute
-    l 0
-    t 0
-    w 0
-    h 0
-    border 0
-    opacity 0
-    &:checked + ^[0]__label:after
-      opacity 1
-    &.warning + ^[0]__label:before 
-      border-color #ff0f37
-
-.btn
-  ib()
-  color white
-  padding 0 28px
-  fontify 16px 700 37px
-  transition .7s border-color, .7s background
-  &:not(&_white)
-    border 2px solid $red
-    bgc $red
-  &_white
-    border 2px solid white
-  &:hover
-    bgc $dred
-    border-color $dred
-
-
-.breadcrumbs
-  text-align center
-  pl 18px
-  color darkgrey
-  mb 10px
-  ml -10px
-  w calc(100% + 10px)
-  &__href
-    color darkgrey
-    fontify 10px 400 14px
-    text-transform uppercase
-    letter-spacing .1em
-    border-bottom 1px solid
-    transition .7s border
-    &:hover
-      border-color transparent
-  &__delim
-    display inline-block
-    vertical-align top
-    margin 5px 10px 0
-    size 7px 11px
-    background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAALCAQAAAAZmV8jAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfjARwNLCBxLNouAAAAT0lEQVQI103MIRZAUBRF0f1flBiRYkZMQzIKY5BkzURIsmD9t9y2T7hlbSwmFxAet01XyWivIfiHjxnKKnc4IzErxkj0Bnf88V0lCI22ghetuxYFLfnalAAAAABJRU5ErkJggg==') no-repeat center
-
-  & + h1:not([class])
-    mt 0
       
 input.warning,
 textarea.warning
   border-color $red
+
+input::-webkit-input-placeholder
+  color alpha(black, .5)
+input::-moz-placeholder
+  color alpha(black, .5)
+input:-ms-input-placeholder
+  color alpha(black, .5)
+    
+div[class\^="table-scroller"]
+  overflow auto
+  pos relative
+  pl 1px
+  margin -4px 0 33px
+  @media $desktopMax
+    w 100%

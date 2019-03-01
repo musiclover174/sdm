@@ -1,14 +1,10 @@
-$os = "ProximaNova"
-$lf = "Lifehack"
+$os = "GothamPro"
 
-$gblue = #e7edf9
-$shadow = #f5f7fc
-$blue = #0066b3
-$red = #f1151d
-$dred = #cc1219
-$orange = #fe670e
-
-$print = 'print'
+$blue = #272a4f
+$gblue = #24274b
+$red = #b62b2a
+$dark = #242424
+$grey = #999
 
 $Mobile = '(max-width:340px)'
 $Mobile370 = '(max-width:370px)'
@@ -17,12 +13,11 @@ $PortraitMin = '(max-width:390px)'
 $PortraitMedium = '(max-width:500px)'
 $PortraitMediumFrom = '(min-width:501px)'
 $PortraitMax = '(max-width:670px)'
-$PortraitMaxFrom = '(min-width:671px)'
 
 $LandscapeMin = '(max-width:767px)'
 $LandscapeMinFrom = '(min-width:768px)'
-$LandscapeMedium = '(max-width:950px)'
-$LandscapeMediumMin = '(min-width:951px)'
+$LandscapeMedium = '(max-width:900px)'
+$LandscapeMediumMin = '(min-width:901px)'
 $LandscapeMax = '(max-width:1000px)'
 $LandscapeMaxFrom = '(min-width:1001px)'
 
@@ -30,9 +25,19 @@ $desktopTablet = '(max-width:1050px)'
 
 $dekstop1142 = '(max-width:1142px)'
 $desktopMin = '(max-width:1170px)'
+$desktopMinFrom = '(min-width:1171px)'
 $desktopMedium = '(max-width:1270px)'
 $desktopMediumFrom = '(min-width:1271px)'
 $desktopMax = '(max-width:1400px)'
+
+$lDesktopSmall = '(max-width:1600px)'
+$lDesktopSmallFrom = '(min-width:1601px)'
+$lDesktopMedium = '(max-width:1920px)'
+$lDesktopMax = '(max-width:2200px)'
+
+$ios = '(-webkit-overflow-scrolling: touch)'
+
+$ie = 'screen and (-ms-high-contrast: active), (-ms-high-contrast: none)'
 
 imgCentering()
   position absolute
@@ -163,3 +168,15 @@ pb($val)
   
 c($val)
   color $val
+
+bb($size = 1px, $type = solid, $color = rgba($dark, .25))
+  border-bottom $size $type $color
+  transition .7s border-color
+  &:hover
+    border-color transparent
+
+bb_invert($size = 1px, $type = solid, $color = rgba($dark, .25))
+  border-bottom $size $type transparent
+  transition .7s border-color
+  &:hover
+    border-color $color

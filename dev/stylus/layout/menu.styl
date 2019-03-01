@@ -1,0 +1,132 @@
+.menu
+  @media $LandscapeMedium
+    pos fixed
+    z-index 11
+    l -100%
+    visibility hidden
+    t 0
+    opacity 0
+    padding 34px 32px
+    w 100%
+    h 100%
+    transition .7s visibility, .7s left, .7s opacity
+    overflow-y auto
+  @media $PortraitMin
+    padding 40px 15px
+  &__list
+    df()
+    @media $LandscapeMedium
+      flex-direction column
+      pr 0
+      w 100%
+  &__item
+    pos relative
+    @media $LandscapeMin
+      w 100%
+    &_tablet
+      df(flex-start, space-between)
+      pt 20px
+      @media $LandscapeMinFrom
+        dn()
+    &_mobile
+      @media $PortraitMediumFrom
+        dn()
+      @media $PortraitMin
+        .header__order
+          db()
+          ml 0
+    & + &
+      ml 31px
+      @media $desktopMedium
+        ml 20px
+      @media $LandscapeMedium
+        ml 0
+        mt 30px
+  &__href
+    pos relative
+    z-index 1
+    color white
+    fontify 16px 500 19px
+    @media $LandscapeMedium
+      fontify 24px 600 32px
+    &:before
+      content ""
+      pos absolute
+      z-index -1
+      l -3px
+      r -3px
+      b 0
+      h 0px
+      bgc $red
+      transition .7s height
+    &:hover:before,
+    &.active:before
+      h 100%
+  &__sublist
+    visibility hidden
+    opacity 0
+    pos absolute
+    t 30px
+    l -24px
+    transition .3s visibility, .3s opacity, .3s top
+    @media $LandscapeMedium
+      visibility visible
+      opacity 1
+      pos relative
+      t 0
+      l 0
+      padding 0
+      bgc transparent
+      mt 14px
+    &:before
+      content ""
+      pos absolute
+      l 0
+      t -21px
+      h 21px
+      w 100%
+      @media $LandscapeMedium
+        dn()
+    @media $LandscapeMediumMin
+      ^[0]__item:hover &
+        t 40px
+        opacity 1
+        visibility visible
+    &-item
+      &_spacer
+        h 14px
+        bgc $red
+      & + &
+        mt 0
+    &-href
+      db()
+      pos relative
+      color white
+      fontify 14px 400 18px
+      padding 8px 24px 9px
+      bgc $red
+      transition .7s background
+      @media $LandscapeMedium
+        fontify 18px 600 24px
+      &:hover,
+      &_active
+        background-color transparent
+  &__search
+    size(14px, 14px)
+    background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAMAAAAolt3jAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAn1BMVEX///+2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyr////k0nLZAAAAM3RSTlMAPrTx+dBvBXH++sS8774KPdUlCZiVt/sBxRLyw2pMtlxU0u2cLW6ZAkbIBpfJvxRLUisl4p9rAAAAAWJLR0QAiAUdSAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAIFJREFUCNdlzesOwUAQhuFBHbrY0mVX2WpRZ63Dd//3xs4kIjF/3jyTTIaIWu1O1O31SWYQq+FoDJ2wJvE0JTIzzJnWpSGLzC1DV15ucqxDokJYYhOy3RlmhX3IAcfTJ2d14e1VI8vLSsHLJ3NzAGqPRkz3x/NFSfM1z581LP3a1m8JbArXGqRCrgAAAABJRU5ErkJggg==') no-repeat center
+    will-change filter
+    mt 3px
+    filter brightness(0) invert(1)
+    transition .7s filter
+    &:hover
+      filter none
+
+body.burgeropen
+  overflow hidden
+  position fixed
+  w 100%
+  .menu
+    visibility visible
+    opacity 1
+    l 0
+    transition-delay .7s
