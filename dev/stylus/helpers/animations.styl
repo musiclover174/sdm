@@ -1,3 +1,76 @@
+.main,
+.header,
+.footer
+  opacity 0
+.logo__wrapper
+  opacity 0
+  l 29px
+.banner
+  w 0
+  &__title
+    opacity 0
+    span
+      db()
+      pos relative
+      oh()
+      h 81px
+    i
+      pos relative
+      b 100%
+  &__bg
+    opacity 0
+  &__btn
+    opacity 0
+    b -30px
+  &__down
+    opacity 0
+
+body
+  &.load
+    pl 78px
+    transition 1.3s .7s padding-left
+    .main
+    .header,
+    .footer
+      opacity 1
+    .banner
+      w 100%
+      transition 1.3s .7s width
+      &__bg
+        opacity .35
+        transition .7s 2s opacity
+      &__title
+        opacity 1
+        transition 1s 2s opacity
+        i
+          b 0
+          transition 1s 2s bottom
+        span:nth-child(1)
+          i
+            transition 1s 2s bottom
+        span:nth-child(2)
+          i
+            transition 1s 2.1s bottom
+        span:nth-child(3)
+          i
+            transition 1s 2.2s bottom
+      &__btn
+        b 0
+        opacity 1
+        transition .7s 3s opacity, .7s 3s bottom
+      &__down
+        opacity 1
+        transition .7s 3s opacity
+    .main
+      transition .7s opacity
+    .logo__wrapper
+      opacity 1
+      l 39px
+      transition .7s 3.7s opacity, .7s 3.7s left
+    .header,
+    .footer
+      transition .7s 3.7s opacity
+
 .h-anim
   pos relative
   opacity .1

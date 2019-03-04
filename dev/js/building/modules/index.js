@@ -1,4 +1,9 @@
-import { qs } from './helpers';
+import {
+  qs,
+  qsAll,
+  fadeOut,
+  fadeIn,
+} from './helpers';
 
 export default class Index {
   constructor(
@@ -17,18 +22,17 @@ export default class Index {
   }
 
   logoAnimation() {
-    const endPoint = 180;
     const logoEl = qs(this.logoClass);
     let bannerHeight = parseInt(getComputedStyle(qs('.js-banner')).height, 10);
-    const wayStart = bannerHeight / 2;
     window.addEventListener('scroll', () => {
-      const scrollPerc = (bannerHeight - endPoint - window.scrollY) / bannerHeight;
-      const nTop = bannerHeight / 2 - (wayStart - endPoint) * (1 - scrollPerc);
-      if (scrollPerc > 0 && nTop > 180) {
-        logoEl.style.top = `${nTop}px`;
+      const scrollPerc = (bannerHeight - window.scrollY) / bannerHeight;
+      const nTop = 25 - 9 * (1 - scrollPerc);
+      if (scrollPerc > 0) {
+        logoEl.style.top = `${nTop}%`;
         logoEl.classList.remove('dark');
       } else {
         logoEl.classList.add('dark');
+        logoEl.style.top = '16%';
       }
     });
 
@@ -38,6 +42,19 @@ export default class Index {
   }
 
   tabsInit() {
-
+    qsAll(this.contactsTabClass).forEach((btn) => {
+      btn.addEventListener('click', () => {
+        if (!btn.classList.contains('active')) {
+          qs(`${this.contactsTabClass}.active`).classList.remove('active');
+          fadeOut(qs(`${this.contactsBlockClass}.active`), 200, () => {
+            qs(`${this.contactsBlockClass}.active`).classList.remove('active');
+            btn.classList.add('active');
+            fadeIn(qs(`${this.contactsBlockClass}[data-id="${btn.getAttribute('data-id')}"]`), 200, () => {
+              qs(`${this.contactsBlockClass}[data-id="${btn.getAttribute('data-id')}"]`).classList.add('active');
+            }, 'flex');
+          });
+        }
+      })
+    });
   }
 }

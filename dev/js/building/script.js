@@ -108,6 +108,8 @@ document.addEventListener('DOMContentLoaded', () => {
   //   qs('.js-company-paper').addEventListener('click', () => qs('.js-company-openpaper').click());
   // }
 
+  window.onload = () => document.body.classList.add('load');
+
   resizeWatcher();
   let eventScroll;
   try {
