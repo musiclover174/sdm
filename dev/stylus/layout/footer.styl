@@ -2,19 +2,36 @@
   bgc $blue
   &__top
     padding 52px 0 57px
+    @media $LandscapeMin
+      padding 40px 0 38px
+      .h-col2
+        dn()
+      .h-col5
+        /body.index &
+          width 100% !important
+          flex 0 0 100% !important
+          max-width none !important
   &__info
     & + &
       mt 12px
+      @media $lDesktopSmall
+        mt 6px
   &__text
     c white
     fontify 16px 400 26px
     max-width 410px
+    @media $lDesktopSmall
+      fontify 15px 400 25px
   &__mail
     c white
     fontify 16px 400 26px
     bb(1px, solid, alpha(white, .25))
+    @media $lDesktopSmall
+      fontify 15px 400 25px
   &__btn
     mt 44px
+    @media $lDesktopSmall
+      mt 24px
   &__nav
     overflow hidden
     pt 4px
@@ -32,9 +49,13 @@
         color white
       &:not(&_main) + &:not(&_main)
         mt 20px
+        @media $lDesktopSmall
+          mt 18px
       &_main
         color white
         fontify 16px 600 19px
+        @media $lDesktopSmall
+          fontify 14px 600 18px
         &:hover,
         &.active
           color $red
@@ -42,18 +63,32 @@
           mt 40px
       &_main + &
         mt 24px
+        @media $lDesktopSmall
+          mt 22px
       &_main + &_main
         mt 43px
   &__bottom
     df(center, flex-start)
     h 79px
     bgc $gblue
+    @media $PortraitMin
+      h 100px
     &-content
       df(center, space-between)
       pr 55px
+      @media $lDesktopSmall
+        pr 31px
+      @media $PortraitMin
+        flex-direction column
+        align-items flex-start
+        justify-content flex-start
   &__copy
     c white
     fontify 16px 500 19px
+    @media $lDesktopSmall
+      fontify 14px 500 19px
+    @media $PortraitMin
+      mb 10px
   &__dextra
     pos relative
     color silver
@@ -63,6 +98,9 @@
     letter-spacing 0.18em
     @media $PortraitMedium
       l 42px
+    @media $PortraitMin
+      ml 84px
+      l 0
     span
       pos absolute
       t 3px
@@ -76,5 +114,8 @@
       border-radius 3px
       padding 0 6px
       transition 0.7s background
+      @media $PortraitMin
+        w 74px
+        text-align center
     &:hover span
       background-color alpha($red, .8)

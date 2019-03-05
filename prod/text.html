@@ -16,16 +16,16 @@
                 <header class="header js-header">
                   <section class="container">
                     <section class="h-wrapper">
-                      <div class="h-col1"></div>
-                                      <aside class="header__lang h-col1"><a class="header__lang-href" href="#">Eng</a><a class="header__lang-href" href="#">Chn</a>
+                      <div class="h-col1 h-col_desktop"></div><a class="header__logo h-col1 h-col h-col_desktop" href="#"><img class="header__logo-img" src="img/logo.png" alt="" role="presentation"/></a>
+                                      <aside class="header__lang h-col1 h-col h-col_desktop"><a class="header__lang-href" href="#">Eng</a><a class="header__lang-href" href="#">Chn</a>
                                       </aside>
-                                      <aside class="header__curr h-col1">
+                                      <aside class="header__curr h-col1 h-col h-col_desktop">
                                                         <div class="header__curr-elem">USD 66,95
                                                         </div>
                                                         <div class="header__curr-elem">EUR 75,20
                                                         </div>
                                       </aside>
-                                      <div class="header__main h-col9"><a class="header__phone" href="tel:88001000159">8-800-1000-159</a>
+                                      <div class="header__main h-col9 h-col h-col_desktop"><a class="header__phone" href="tel:88001000159">8-800-1000-159</a>
                                                     <nav class="menu">
                                                                       <ul class="menu__list">
                                                                                         <li class="menu__item"><a class="menu__href menu__href_havesub menu__href_active" href="#">Компания</a>
@@ -73,12 +73,22 @@
                                                                                         <li class="menu__item"><a class="menu__href" href="#">Контакты</a>
                                                                                         </li>
                                                                                         <li class="menu__item menu__item_search">
-                                                                                                          <button class="menu__search" type="button" aria-label="Поиск">
+                                                                                                          <button class="menu__search" type="button" aria-label="Поиск"> <span>Поиск</span>
                                                                                                           </button>
+                                                                                        </li>
+                                                                                        <li class="menu__item menu__item_tablet">
+                                                                                          <div class="header__lang"><a class="header__lang-href" href="#">Eng</a><a class="header__lang-href" href="#">Chn</a></div>
+                                                                                        </li>
+                                                                                        <li class="menu__item menu__item_tablet">
+                                                                                              <button class="header__btn btn" data-fancybox data-src="src" type="button" arial-label="Отследить груз">Отследить груз</button>
                                                                                         </li>
                                                                       </ul>
                                                     </nav>
                                             <button class="header__btn btn" data-fancybox data-src="src" type="button" arial-label="Отследить груз">Отследить груз</button>
+                                                    <div class="burger">
+                                                                      <button class="burger__button js-burger" type="button" aria-label="открыть мобильное меню"><span class="burger__button-meat"></span>
+                                                                      </button><span class="burger__shadow"></span>
+                                                    </div>
                                       </div>
                     </section>
                   </section>

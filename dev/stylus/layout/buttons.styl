@@ -5,8 +5,12 @@
   color white
   padding 0 23px
   fontify 16px 500 43px
-  &_f18
-    fontify 18px 500 45px
+  @media $lDesktopSmallFrom
+    &_f18
+      fontify 18px 500 45px
+      padding 0 24px
+  @media $lDesktopSmall
+    fontify 14px 500 41px
     padding 0 24px
   &:before
     content ""

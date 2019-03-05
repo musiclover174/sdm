@@ -1,14 +1,38 @@
 .info
   padding 88px 0 93px
+  @media $lDesktopSmall
+    padding 48px 0 59px
+  @media $desktopMin
+    .h-col1
+      dn()
+    .h-wrapper
+      pl calc(8.333333333333332% - 13px)
+      flex-direction column-reverse
+  @media $dekstop1142
+    pt 0
   &__news
     mt 26px
+    @media $lDesktopSmall
+      mt 21px
+    @media $desktopMin
+      /body.index &
+        w 100%
+        flex 0 0 100%
+        max-width none
+        mt 0
     &-title
       c $dark
       fontify 30px 500 32px
       bb()
+      @media $lDesktopSmall
+        fontify 24px 500 26px
+      @media $dekstop1142
+        fontify 42px 700 46px
     &-list
       mt 42px
       pr 20px
+      @media $lDesktopSmall
+        mt 40px
     &-item
       & + &
         mt 38px
@@ -16,24 +40,43 @@
       c $grey
       fontify 15px 400 19px
       mb 10px
+      @media $lDesktopSmall
+        fontify 14px 400 18px
     &-href
       c $dark
       fontify 16px 500 26px
       bb()
+      @media $lDesktopSmall
+        fontify 15px 500 25px
   &__contacts
+    @media $desktopMin
+      /body.index &
+        w 100%
+        flex 0 0 100%
+        max-width none
+        mt 60px
     &-title
       c $dark
       fontify 60px 700 64px
       ml -4px
       mb 37px
+      @media $lDesktopSmall
+        fontify 48px 700 52px
+      @media $dekstop1142
+        fontify 42px 700 46px
     &-tabs
       df()
       flex-wrap wrap
       ml -31px
       w calc(100% + 31px)
+      @media $LandscapeMin
+        ml -13px
+        w calc(100% + 13px)
     &-tab
       ml 31px
       mb 10px
+      @media $LandscapeMin
+        ml 13px
     &-href
       pos relative
       z-index 1
@@ -41,6 +84,8 @@
       fontify 18px 500 20px
       white-space nowrap
       bb(1px, dotted, alpha($dark, .25))
+      @media $LandscapeMin
+        fontify 15px 500 18px
       &:before
         content ""
         pos absolute
@@ -61,6 +106,8 @@
     &-blocks
       mb -37px
       mt 50px
+      @media $lDesktopSmall
+        mt 40px
     &-block
       flex-wrap wrap
       justify-content space-between
@@ -71,15 +118,24 @@
   &__block
     w calc(50% - 18px)
     mb 37px
+    @media $PortraitMin
+      w calc(100% - 18px)
     &-title
       c $grey
       fontify 15px 400 19px
       mb 10px
+      @media $lDesktopSmall
+        fontify 14px 400 18px
     &-text
       c $dark
       fontify 16px 400 26px
+      @media $lDesktopSmall
+        fontify 15px 400 25px
+        max-width 285px
     &-mail
       c $dark
       fontify 16px 400 26px
       bb()
+      @media $lDesktopSmall
+        fontify 15px 400 25px
     

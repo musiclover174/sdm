@@ -8,14 +8,16 @@ a(href="#").logo__wrapper.js-logo
 +b('header').header.js-header
   section.container
     section.h-wrapper
-      .h-col1
-      +e('aside').lang.h-col1
+      .h-col1.h-col_desktop
+      +e.logo(href="#").h-col1.h-col_desktop
+        +e.logo-img(src="img/logo.png")
+      +e('aside').lang.h-col1.h-col_desktop
         +e.lang-href(href="#") Eng
         +e.lang-href(href="#") Chn
-      +e('aside').curr.h-col1
+      +e('aside').curr.h-col1.h-col_desktop
         +e.curr-elem USD 66,95
         +e.curr-elem EUR 75,20
-      +e.main.h-col9
+      +e.main.h-col9.h-col_desktop
         +e.phone(href="tel:88001000159") 8-800-1000-159
         +b('nav').menu
           +e('ul').list
@@ -58,5 +60,16 @@ a(href="#").logo__wrapper.js-logo
             +e.item
               +e.href(href="#") Контакты
             +e.item._search
-              +e.search(type="button", aria-label="Поиск")
+              +e.search(type="button", aria-label="Поиск") 
+                span Поиск
+            +e.item._tablet
+              .header__lang
+                a(href="#").header__lang-href Eng
+                a(href="#").header__lang-href Chn
+            +e.item._tablet
+              +btn('Отследить груз', true, '#track')(class="header__btn btn")
         +btn('Отследить груз', true, '#track')(class="header__btn btn")
+        +b.burger
+          +e(type="button", aria-label="открыть мобильное меню").button.js-burger
+            +e('span').button-meat
+          +e('span').shadow

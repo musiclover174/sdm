@@ -3,18 +3,25 @@
     pos fixed
     t 25%
     mt -46px
+    oh()
+    size 207px 93px
     z-index 5
+    @media $lDesktopSmall
+      t 30%
+      &[style]
+        size 77px 93px
+    @media $LandscapeMax
+      dn()
     &.dark ^[0]__img_dark
       opacity 1
   &__img
-    max-width 100%
+    w 207px
     &_dark
       pos absolute
       l 0
       t 0
       opacity 0
       transition .7s opacity
-    
 
 .header
   pos fixed
@@ -24,8 +31,21 @@
   z-index 5
   padding 18px 0
   transition .7s top
-  &:not(.fixed)
-    t 15px
+  @media $lDesktopSmall
+    l 63px
+  @media $LandscapeMax
+    l 0
+    .h-wrapper
+      align-items center
+      justify-content space-between
+  @media $LandscapeMaxFrom
+    &:not(.fixed)
+      t 15px
+  @media $LandscapeMax
+    .h-wrapper
+      & > ^[0]__curr,
+      & > ^[0]__lang
+        dn()
   &:before
     content ""
     pos absolute
@@ -35,18 +55,39 @@
     h 0
     bgc $gblue
     transition .7s height
+    @media $LandscapeMax
+      h 100%
   &.fixed:before
     h 100%
+  @media $LandscapeMaxFrom
+    &__logo
+      dn()
+  &__logo
+    pos relative
+    &-img
+      @media $LandscapeMax
+        max-height 74px
+      @media $Mobile370
+        max-height 50px
   &__lang
     dfv()
     pos relative
+    @media $LandscapeMax
+      flex-direction row
     &-href
       pos relative
       z-index 1
       c white
       fontify 16px 500 19px
+      @media $lDesktopSmall
+        fontify 14px 500 19px
+      @media $LandscapeMax
+        fontify 24px 600 32px
       & + &
         mt 5px
+        @media $LandscapeMax
+          mt 0
+          ml 15px
       &:before
         content ""
         pos absolute
@@ -71,15 +112,37 @@
       c white
       fontify 16px 500 19px
       white-space nowrap
+      @media $lDesktopSmall
+        fontify 14px 500 19px
       & + &
         mt 5px
   &__main
     df(center, space-between)
     pl 70px
+    @media $desktopMin
+      justify-content flex-end
+      align-self center
+      & > ^[0]__btn
+        dn()
+    @media $LandscapeMax
+      justify-content space-between
+    @media $PortraitMedium
+      pl 0
   &__phone
     pos relative
     c white
     fontify 16px 500 18px
+    @media $lDesktopSmall
+      fontify 14px 500 18px
+      mt -1px
+    @media $LandscapeMax
+      fontify 24px 500 19px
+    @media $PortraitMax
+      fontify 20px 500 19px
+    @media $PortraitMedium
+      fontify 15px 500 19px
+    @media $Mobile370
+      fontify 14px 400 19px
     &:before
       content ""
       pos absolute
@@ -87,136 +150,5 @@
       l -23px
       size(14px, 15px)
       background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAPCAMAAADjyg5GAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABHVBMVEX///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////9YteYkAAAAXnRSTlMAl9lzBZ38xBgtt/3HEEvhqD7tuAGx/h7jlQZT6WcvgfuPvLRI8MF/9Qd86HZYHG65CuLaHaKL3GklXmuS76ECzCpCC4A6QBIJ2N4VhlA195ErziAz+KWQ59+C1etOQkWEFgAAAAFiS0dEAIgFHUgAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAC2SURBVAjXY2CAAkYmZhYQzcrGzgGkOLm4eXgZGPji+OMEwPKCQsIiDKLsIlxi4gwMEpJSgmLSDDKyDMxxcgwM8gqKDErKDArSKqpqIkC16hqaWvwM2jpacbogrSpxevoaDFwGhkbGICtMTFnMzBksuC2t4qwhdlvbMPDa2tk7yDg6OUOd4yLm6hYXF2fuDuF6eHp5+/j6+QdApQNVg4KBbrWFuT7EKDQsPCISxmXgjYoOjYkFsQA5PRdOr9Rh9gAAAABJRU5ErkJggg==') no-repeat center
-
-.burger
-  @media $LandscapeMediumMin
-    dn()
-  ml 30px
-  &__shadow
-    pos fixed
-    l 0
-    t 0
-    transform translateY(100%)
-    transition 1s transform, .7s opacity
-    will-change transform
-    opacity .2
-    bgc white
-    size 100%
-    z-index 10
-  &__button
-    cursor pointer
-    w 25px
-    h 25px
-    pos relative
-    z-index 11
-    &:before
-      content ""
-      pos absolute
-      t 0
-      r 0
-      w 25px
-      h 1px
-      bgc white
-      transition .5s width, .5s background, .5s transform, .5s top
-    &:after
-      content ""
-      pos absolute
-      b 0
-      r 0
-      w 25px
-      h 1px
-      bgc white
-      transition .5s width, .5s background, .5s transform, .5s top  
-    &-meat
-      content ""
-      pos absolute
-      t 50%
-      r 0
-      w 25px
-      h 1px
-      bgc white
-      transition .5s width, .5s background, .5s transform, .5s top  
-    &.open
-      &:before
-        animation burger-top 1s ease-in-out forwards
-      &:after
-        animation burger-bottom 1s ease-in-out forwards
-      & ^[-1]-meat
-        opacity 0
-      & + ^[0]__shadow
-        opacity 1
-        transform translateY(0)
-    &.open.remove
-      &:before
-        animation burger-top-invert 1s ease-in-out forwards
-      &:after
-        animation burger-bottom-invert 1s ease-in-out forwards
-      & ^[-1]-meat
-        opacity 1
-        transition .4s opacity .6s
-
-html:not(.touchevents)
-  .burger
-    &:not(.open):hover
-      &:before
-        animation burger-hover 1s infinite ease-in-out alternate
-      &:after
-        animation burger-hover 1s infinite ease-in-out alternate forwards 400ms
-    &:not(.open):hover &-meat
-      animation burger-hover 1s infinite ease-in-out alternate forwards 200ms
-
-@keyframes burger-hover
-  0%
-    w 100%
-  50%
-    w 50%
-  100%
-    w 100%
-      
-@keyframes burger-top
-  0%
-    t 0
-  40%
-    t 12px
-  60%
-    t 12px
-    transform rotate(0)
-  100%
-    t 12px
-    transform rotate(45deg)
-    
-@keyframes burger-bottom
-  0%
-    b 0
-  40%
-    b 12px
-  60%
-    b 12px
-    transform rotate(0)
-  100%
-    b 12px
-    transform rotate(-45deg)
-
-@keyframes burger-top-invert
-  0%
-    t 12px
-    transform rotate(45deg)
-  40%
-    t 12px
-    transform rotate(0)
-  60%
-    t 12px
-  100%
-    t 0
-    
-@keyframes burger-bottom-invert
-  0%
-    b 12px
-    transform rotate(-45deg)
-  40%
-    b 12px
-    transform rotate(0)
-  60%
-    b 12px
-  100%
-    b 0
+      @media $LandscapeMax
+        dn()

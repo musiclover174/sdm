@@ -1,0 +1,38 @@
+.h-wrapper
+  df()
+  flex-wrap wrap
+  mr -18px
+  ml -18px
+  @media $lDesktopSmall
+    ml -16px
+    mr -16px
+
+[class*="h-col"]
+  padding 0 18px
+  @media $lDesktopSmall
+    padding 0 16px
+
+for i in range(1, 12, 1)
+  .h-col{i}
+    flex 0 0 percentage(i / 12)
+    max-width percentage(i / 12)
+    @media $LandscapeMax
+      &.h-col_desktop
+        max-width none
+        flex 0 0 auto
+
+@media $LandscapeMax
+  body.index
+    .h-col1:first-child
+      dn()
+    .h-wrapper
+      pl 8.333333333333332%
+    for i in range(1, 11, 1)
+      .h-col{i}:not(.h-col_desktop):not(.types__about):not(.types__list):not(.info__contacts):not(.info__news)
+        flex 0 0 percentage(i / 11)
+        max-width percentage(i / 11)
+
+@media $LandscapeMin
+  body.index
+    .h-wrapper
+      pl 0

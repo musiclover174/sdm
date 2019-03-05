@@ -11,14 +11,14 @@ body
   max-width 1540px
   padding 0 50px
   margin 0 auto
-  @media $desktopMax
-    max-width 1180px
-  @media $desktopMedium
-    max-width 900px
-    padding 0 30px
-  @media $LandscapeMedium
-    max-width 100%
-  @media $PortraitMedium
+  @media $lDesktopSmall
+    max-width none
+    ml -30px
+    mr 30px
+    padding 0
+  @media $LandscapeMin
+    ml 0
+    mr 0
     padding 0 15px
   &_rel
     pos relative

@@ -67,9 +67,13 @@
     pr 9px
     color $red
     fontify 16px 700 26px
+    @media $lDesktopSmall
+      fontify 15px 400 25px
   p:not([class])
     fontify 16px 400 26px
     margin 18px 0
+    @media $lDesktopSmall
+      fontify 15px 400 25px
   a:not([class])
     c $blue
     border-bottom 1px solid alpha($blue, .4)

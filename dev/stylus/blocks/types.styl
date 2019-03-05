@@ -1,12 +1,35 @@
 .types
   padding 100px 0
+  @media $desktopMin
+    .h-col1
+      dn()
+    .h-wrapper
+      pl calc(8.333333333333332%)
+  @media $PortraitMax
+    padding 70px 0
   &__about
     mt -11px
+    @media $desktopMin
+      /body.index &
+        w 100%
+        flex 0 0 100%
+        max-width none
     &-title
       c $dark
       fontify 60px 700 64px
       mb 33px
       ml -4px
+      @media $lDesktopSmall
+        fontify 48px 700 52px
+      @media $dekstop1142
+        fontify 42px 700 46px
+        mb 20px
+      @media $desktopMin
+        ml 0
+      @media $LandscapeMin
+        fontify 34px 700 38px
+      @media $PortraitMax
+        max-width 300px
       span
         c $red
     &-text
@@ -14,6 +37,12 @@
   &__list
     df(stretch, flex-start)
     flex-wrap wrap
+    @media $desktopMin
+      /body.index &
+        w 100%
+        flex 0 0 100%
+        max-width none
+        mt 40px
   &__item
     w 50%
     pos relative
@@ -23,23 +52,52 @@
     min-height 234px
     bgc $blue
     oh()
-    &:nth-child(1),
-    &:nth-child(2)
-      border-top 1px solid #eaebf3
-    &:nth-child(2n-1)
+    @media $lDesktopSmall
+      min-height 185px
+    @media $desktopMedium
+      padding 22px 29px
+    @media $LandscapeMin
+      padding 30px
+      bgc white
+    @media $PortraitMediumFrom
+      &:nth-child(1),
+      &:nth-child(2)
+        border-top 1px solid #eaebf3
+      &:nth-child(2n-1)
+        border-left 1px solid #eaebf3
+    @media $PortraitMedium
+      w 100%
+      border-bottom 1px solid #eaebf3
       border-left 1px solid #eaebf3
+      &:first-child
+        border-top 1px solid #eaebf3
     &:before
       content ""
       pos absolute
       z-index 1
-      l 0
-      t -188%
-      pt 112%
-      w 167%
+      l 390px
+      t -95%
+      pt 132%
+      w 100%
       bgc white
-      transform rotate(38deg)
+      transform rotate(64deg)
       transform-origin 0 0
       transition 2s width
+      @media $lDesktopSmall
+        t -115%
+        l 430px
+      @media $desktopMax
+        l 340px
+      @media $desktopMedium
+        l 320px
+        t -85%
+        pt 142%
+      @media $desktopMin
+        transform none
+        l 0
+        t 0
+        size 100%
+        transition .7s opacity
     &-bg
       pos absolute
       t 0
@@ -50,28 +108,52 @@
       background-position center
       z-index 0
       opacity .35
+      @media $LandscapeMin
+        dn()
     &-namelist
       dfv()
       pos relative
       z-index 2
       max-width 275px
+      @media $lDesktopSmall
+        max-width 245px
     &-name
       & + &
         mt 15px
+        @media $LandscapeMin
+          mt 8px
     &-href
       c $dark
       fontify 20px 500 30px
       bb_invert()
       transition 1s color, .7s border-color
+      @media $lDesktopSmall
+        fontify 18px 500 28px
+      @media $LandscapeMin
+        fontify 15px 500 25px
     &-icon
       pos absolute
       r 41px
       b 41px
       z-index 2
       transition .5s filter
-    &:hover
+      @media $lDesktopSmall
+        r 31px
+        b 31px
+      @media $LandscapeMin
+        pos relative
+        l 0
+        t 0
+        r auto
+        b auto
+        z-index 1
+        mb 18px
+    /body.no-touchevents &:hover
       &:before
         w 0%
+        @media $desktopMin
+          w 100%
+          opacity 0
       & ^[-1]-href
         c white
         border-color alpha(white, .25)

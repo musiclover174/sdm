@@ -5,14 +5,32 @@
   h 100vh
   pb 100px
   bgc $blue
+  @media $lDesktopSmall
+    pb 70px
+  @media $dekstop1142
+    pb 40px
+  @media $LandscapeMin
+    h auto
+    pt 220px
   &__title
     max-width 1040px
     c white
     fontify 72px 700 76px
     mb 39px
     ml -4px
+    @media $lDesktopSmall
+      fontify 60px 700 64px
+    @media $dekstop1142
+      fontify 48px 700 52px
+    @media $LandscapeMin
+      fontify 38px 700 42px
+    @media $PortraitMin
+      fontify 34px 700 38px
     i
       font-style normal
+    @media $LandscapeMax
+      span
+        h 52px
   &__bg
     pos absolute
     l 0
@@ -22,18 +40,34 @@
     background-position center
     background-repeat no-repeat
     background-size cover
+    @media $LandscapeMax
+      opacity .35
+  @media $lDesktopSmall
+    .h-wrapper
+      pos relative
   .h-col11
     pos relative
   &__down
     pos absolute
     z-index 1
-    b 32px
-    r 31px
+    b 30px
+    r 0
     c white
     fontify 16px 500 16px
     pl 50px
     transform rotate(-90deg)
-    transform-origin 0 100%
+    @media $lDesktopSmallFrom
+      r 31px
+      transform-origin 0 100%
+    @media $lDesktopSmall
+      fontify 14px 500 14px
+      w 146px
+      r -52px
+      white-space nowrap
+    @media $dekstop1142
+      b 62px
+    @media $LandscapeMedium
+      dn()
     &:before
       content ""
       pos absolute

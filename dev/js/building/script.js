@@ -3,7 +3,7 @@ import {
 } from './modules/helpers';
 
 import Index from './modules/index';
-// import Burger from './modules/burger';
+import Burger from './modules/burger';
 // import Contacts from './modules/contacts';
 // import Forms from './modules/forms';
 // import Share from './modules/share';
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const headerEl = qs('.js-header');
   window.addEventListener('scroll', () => {
-    if (window.scrollY > screen.height / 3) {
+    if (window.scrollY > window.innerHeight / 3) {
       headerEl.classList.add('fixed');
     } else {
       headerEl.classList.remove('fixed');
@@ -26,7 +26,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (qsAll('.h-anim').length) elemVisCheck();
 
-  // const burger = new Burger();
+  if (qs('.js-burger')) {
+    const burger = new Burger(qs('.js-burger'));
+  }
+  
   if (document.body.classList.contains('index')) {
     const index = new Index(
       {
