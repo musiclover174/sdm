@@ -1,0 +1,32 @@
+.news
+  &-side
+    &__title
+      fontify 48px 700 48px
+      mb 31px
+      @media $lDesktopSmall
+        fontify 36px 700 40px
+    &__item
+      max-width 290px
+      & + &
+        mt 33px
+    &__date
+      c #999
+      fontify 15px 400 19px
+      mb 10px
+      @media $lDesktopSmall
+        fontify 14px 400 18px
+    &__href
+      c $dark
+      fontify 16px 500 26px
+      border-bottom 1px solid alpha($dark, .25)
+      transition .7s border-color
+      @media $lDesktopSmall
+        fontify 15px 500 25px
+      &:hover
+        border-color transparent
+    &__text
+      c $dark
+      fontify 15px 400 25px
+      mt 10px
+      @media $lDesktopSmall
+        fontify 14px 400 24px

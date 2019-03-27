@@ -7,7 +7,7 @@ import Burger from './modules/burger';
 // import Contacts from './modules/contacts';
 // import Forms from './modules/forms';
 // import Share from './modules/share';
-// import Sticky from './modules/sticky';
+import Sticky from './modules/sticky';
 // import Realized from './modules/realized';
 // import Filter from './modules/filter';
 // import Slider from './modules/slider';
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (qs('.js-burger')) {
     const burger = new Burger(qs('.js-burger'));
   }
-  
+
   if (document.body.classList.contains('index')) {
     const index = new Index(
       {
@@ -64,19 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
   //   window.share = new Share();
   // }
 
-  // if (qsAll('[data-fancybox]')) {
-  //   $('[data-fancybox]').fancybox({ 
-  //     transitionEffect: 'slide',
-  //     i18n: {
-  //       en: {
-  //         CLOSE: 'Закрыть',
-  //         PREV: 'Предыдудщий',
-  //         NEXT: 'Следующий',
-  //       },
-  //     },
-  //   });
-  // }
-
   // if (qsAll('.js-typecar')) {
   //   const typeCar = new Swiper('.js-typecar', {
   //     speed: 800,
@@ -91,9 +78,9 @@ document.addEventListener('DOMContentLoaded', () => {
   //   });
   // }
 
-  // if (qs('.js-sticky')) {
-  //   const sticky = new Sticky();
-  // }
+  if (qs('.js-sticky')) {
+    const sticky = new Sticky();
+  }
 
   // if (qs('.js-filter')) {
   //   const filter = new Filter('.js-filter', '.js-filter-open');

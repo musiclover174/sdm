@@ -1,32 +1,33 @@
 @media $LandscapeMaxFrom
-  .main,
-  .header,
-  .footer
-    opacity 0
-  .logo__wrapper
-    opacity 0
-    l 29px
-  .banner
-    w 0
-    &__title
+  body.index
+    .main,
+    .header,
+    .footer
       opacity 0
-      span
-        db()
-        pos relative
-        oh()
-        h 81px
-      i
-        pos relative
-        b 100%
-    &__bg
+    .logo__wrapper
       opacity 0
-    &__btn
-      opacity 0
-      b -30px
-    &__down
-      opacity 0
+      l 29px
+    .banner
+      w 0
+      &__title
+        opacity 0
+        span
+          db()
+          pos relative
+          oh()
+          h 81px
+        i
+          pos relative
+          b 100%
+      &__bg
+        opacity 0
+      &__btn
+        opacity 0
+        b -30px
+      &__down
+        opacity 0
 
-  body
+  body.index
     &.load
       pl 78px
       transition 1.3s .7s padding-left
@@ -72,17 +73,24 @@
       .footer
         transition .7s 3.7s opacity
 
+  body:not(.index)
+    pl 78px
+
 @media (min-width:1001px) and (max-width:1600px)
-  .banner__title span
-    h 64px
-  body.load
+  body.index
+    .banner__title span
+      h 64px
+  body.index.load
     pl 63px
     .logo__wrapper
       l 24px
+  body:not(.index)
+    pl 63px
 
 @media (min-width:1001px) and (max-width:1142px)
-  .banner__title span
-    h 52px
+  body.index
+    .banner__title span
+      h 52px
 
 .h-anim
   pos relative

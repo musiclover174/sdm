@@ -6,33 +6,53 @@
   @media $lDesktopSmall
     ml -16px
     mr -16px
+  @media $desktopTablet
+    &.h-wrapper_desktop
+      justify-content flex-end
 
 [class*="h-col"]
-  padding 0 18px
+  pl 18px
+  pr 18px
   @media $lDesktopSmall
-    padding 0 16px
+    pl 16px
+    pr 16px
 
 for i in range(1, 12, 1)
   .h-col{i}
     flex 0 0 percentage(i / 12)
     max-width percentage(i / 12)
-    @media $LandscapeMax
+    @media $desktopTablet
       &.h-col_desktop
         max-width none
         flex 0 0 auto
 
+.h-col
+  &_snews
+    df(stretch, flex-start)
+    align-self stretch
+    pt 174px
+    pb 20px
+    @media $lDesktopSmall
+      pt 172px
+    @media $LandscapeMax
+      dn()
+  &_tablet-wide
+    @media $LandscapeMax
+      max-width 100%
+      flex 0 0 100%
+
 @media $LandscapeMax
-  body.index
+  body
     .h-col1:first-child
       dn()
     .h-wrapper
       pl 8.333333333333332%
     for i in range(1, 11, 1)
-      .h-col{i}:not(.h-col_desktop):not(.types__about):not(.types__list):not(.info__contacts):not(.info__news)
+      .h-col{i}:not(.h-col_desktop):not(.types__about):not(.types__list):not(.info__contacts):not(.info__news):not(.h-col_tablet-wide)
         flex 0 0 percentage(i / 11)
         max-width percentage(i / 11)
 
 @media $LandscapeMin
-  body.index
+  body
     .h-wrapper
       pl 0

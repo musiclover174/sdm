@@ -23,7 +23,7 @@ export default class Index {
 
   logoAnimation() {
     let startTop = 25;
-    let endTop = 9;
+    let endTop = 20;
     if (window.innerWidth < 1600) {
       startTop = 30;
       endTop = 25;

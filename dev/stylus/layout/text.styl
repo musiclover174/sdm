@@ -1,62 +1,88 @@
+body:not(.index)
+  .main
+    pos relative
+    z-index 1
+    bgc #f6f6fa
+    pt 210px
+    @media $LandscapeMax
+      pt 170px
+
+.text
+  bgc white
+  padding 135px 13% 156px
+  @media $LandscapeMax
+    padding 0 0 70px
+    bgc transparent
+    max-width 750px
+  &__bg
+    pos fixed
+    z-index -1
+    l 78px
+    r 0
+    t 0
+    b 0
+    opacity .1
+    background-repeat no-repeat
+    background-position center
+    background-size cover
+    @media (min-width:1001px) and (max-width:1600px)
+      l 63px
+    @media $LandscapeMax
+      dn()
+
 .main
   oh()
   h1:not([class])
-    color $blue
-    fontify 60px 900 66px
-    margin 63px 0 48px
-    text-align center
-    @media $desktopMedium
-      fontify 50px 700 50px
+    color $dark
+    fontify 60px 700 64px
+    margin 63px 0 30px
+    @media $lDesktopSmall
+      fontify 48px 700 52px
     @media $PortraitMax
       fontify 36px 700 40px
   h2:not([class])
-    color $blue
-    fontify 44px 700 50px
-    margin 54px 0 -3px
-    @media $desktopMedium
-      fontify 40px 700 44px
+    color $dark
+    fontify 44px 700 48px
+    margin 63px 0 32px
+    @media $lDesktopSmall
+      fontify 36px 700 40px
     @media $PortraitMax
       fontify 30px 700 34px
-  h3:not([class])
-    color $blue
-    fontify 32px 700 38px
-    margin 56px 0 -2px
-    @media $PortraitMax
-      fontify 24px 700 30px
+  h3:not([class]),
   h4:not([class])
-    color $blue
-    fontify 24px 700 30px
-    margin 56px 0 20px
+    color $dark
+    fontify 30px 700 34px
+    margin 66px 0 35px
+    @media $lDesktopSmall
+      fontify 24px 700 30px
   iframe:not([class]),
   img:not([class])
     margin 7px 0
     max-width 100%
   ul:not([class])
     list-style  none
-    margin -10px 0 20px
+    margin 19px 0 18px 14px
   ul:not([class]) li
-    pl 32px
+    pl 25px
     pos relative
     fontify 16px 400 26px
-  ul:not([class]) li + li
-    mt 15px
+    @media $lDesktopSmall
+      fontify 15px 400 25px
   ul:not([class]) > li:before
     content ""
     pos absolute
-    l 0
+    l 12px
     t 9px
-    size 7px
-    bgc $red
+    size 5px 14px
+    background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAOCAMAAADQdiYUAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEW2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyr///9xwYqVAAAAE3RSTlMAtJsi9/01gssCCN5nddlogSE2Q+C6LgAAAAFiS0dEFJLfyTUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfjAxsNBQt+wddcAAAAEGNhTnYAAAARAAAAFAAAAAgAAAAGEpilegAAADRJREFUCNdjYBRmYmBgYGZhZQNS7MIcnAwMXNzCPEAOrzAfmM3PwCAAEhdkYRViYICoxwsATIIBYycmq1QAAAAASUVORK5CYII=') no-repeat center
   ol:not([class])
     list-style none
     margin -11px 0 20px
     counter-reset myCounter
   ol:not([class]) li
-    pl 32px
+    pl 25px
     pos relative
     fontify 16px 400 26px
-  ol:not([class]) li + li
-    mt 15px
   ol:not([class]) > li:before
     counter-increment myCounter
     content counter(myCounter)"."	
@@ -88,7 +114,6 @@
 
   table
     tbody
-      border 2px solid $gblue
       border-top 0
     th
       c white
@@ -96,9 +121,23 @@
       bgc $blue
       padding 17px 24px
       text-align left
+      @media $lDesktopSmall
+        fontify 15px 400 25px
+      & + th
+        border-left 1px solid alpha(#eaebf3, .05)
     td
       c black
-      padding 12px 24px
+      padding 13px 29px
       fontify 16px 400 26px
       text-align center
-      border 1px solid $gblue
+      border 1px solid #eaebf3
+      @media $lDesktopSmall
+        fontify 15px 400 25px
+
+div[class\^="table-scroller"]
+  overflow auto
+  pos relative
+  pl 1px
+  margin 25px 0 23px
+  @media $desktopMax
+    w 100%
