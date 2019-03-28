@@ -1,0 +1,78 @@
+.reviews
+  @media $LandscapeMax
+    max-width 750px
+  &:last-child
+    mb 140px
+    @media $LandscapeMax
+      mb 100px
+  &:not(:first-child)
+    mt 30px
+  &__maintitle
+    fontify 44px 700 48px
+    margin 70px 0 39px
+    @media $lDesktopSmall
+      fontify 36px 700 40px
+    @media $PortraitMax
+      fontify 30px 700 34px
+  &__item
+    &:not(&_wide)
+      df(flex-start, space-between)
+      @media $LandscapeMax
+        flex-direction column
+    pos relative
+    z-index 1
+    padding 44px 13% 50px
+    @media $LandscapeMax
+      padding 44px 0
+    @media $LandscapeMax
+      padding 0
+    &:before
+      content ""
+      pos absolute
+      z-index -1
+      bgc white
+      l 0
+      t 0
+      b 0
+      r 0
+      transition .7s left, .7s right
+      @media $LandscapeMax
+        bgc transparent
+    &:hover:before
+      l 30px
+      r 30px
+    & + &
+      mt 20px
+      @media $LandscapeMax
+        mt 60px
+    &-name
+      c $dark
+      fontify 30px 500 34px
+      mb 17px
+      @media $lDesktopSmall
+        fontify 24px 500 30px
+      @media $PortraitMax
+        fontify 22px 500 28px
+    &-text
+      mb 21px
+    &-from
+      c #999
+      fontify 15px 400 19px
+      @media $lDesktopSmall
+        fontify 14px 400 18px
+      & + ^[-1]-date
+        mt 9px
+    &-date
+      c #999
+      fontify 15px 400 19px
+      @media $lDesktopSmall
+        fontify 14px 400 18px
+  &__toall
+    ib()
+    mt 45px
+    c $dark
+    fontify 16px 500 16px
+    border-bottom 1px solid alpha($dark, .25)
+    transition .7s border-color
+    &:hover
+      border-color transparent

@@ -33,6 +33,32 @@
       @media $lDesktopSmall
         fontify 14px 400 24px
   &__elem
+    &-info
+      df(flex-start, space-between)
+      pb 25px
+      mb 25px
+      border-bottom 1px solid #eaebf3
+      @media $PortraitMax
+        flex-direction column
+      &-title
+        c #999
+        fontify 15px 400 19px
+        mb 5px
+        @media $lDesktopSmall
+          fontify 14px 400 18px
+      &-value
+        c $dark
+        fontify 16px 500 25px
+        @media $lDesktopSmall
+          fontify 15px 500 24px
+    &-col
+      w calc(50% - 18px)
+      @media $lDesktopSmall
+        w calc(50% - 16px)
+      @media $PortraitMax
+        w 100%
+        & + &
+          mt 20px
     &-date
       c #999
       fontify 16px 400 19px

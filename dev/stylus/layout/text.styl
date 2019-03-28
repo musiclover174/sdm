@@ -11,6 +11,10 @@ body:not(.index)
 .text
   bgc white
   padding 135px 13% 156px
+  &:not(:last-child)
+    pb 134px
+    @media $LandscapeMax
+      pb 0
   @media $LandscapeMax
     padding 0 0 70px
     bgc transparent
