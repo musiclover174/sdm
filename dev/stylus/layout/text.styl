@@ -15,6 +15,11 @@ body:not(.index)
     padding 0 0 70px
     bgc transparent
     max-width 750px
+  &_wide
+    padding 0
+    bgc transparent
+    @media $LandscapeMax
+      max-width inherit
   &__bg
     pos fixed
     z-index -1

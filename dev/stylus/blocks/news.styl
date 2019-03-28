@@ -5,6 +5,8 @@
       mb 31px
       @media $lDesktopSmall
         fontify 36px 700 40px
+      @media $PortraitMax
+        fontify 30px 700 34px
     &__item
       max-width 290px
       & + &
@@ -30,3 +32,85 @@
       mt 10px
       @media $lDesktopSmall
         fontify 14px 400 24px
+  &__item
+    pos relative
+    z-index 1
+    df(flex-start, space-between)
+    padding 50px calc(10% - 7px)
+    @media $LandscapeMax
+      padding 50px 0
+    @media $LandscapeMax
+      flex-direction column
+      padding 0
+    &:before
+      content ""
+      pos absolute
+      z-index -1
+      bgc white
+      l 0
+      t 0
+      b 0
+      r 0
+      transition .7s left, .7s right
+      @media $LandscapeMax
+        bgc transparent
+    &:hover:before
+      l 30px
+      r 30px
+    & + &
+      mt 20px
+      @media $LandscapeMax
+        mt 60px
+    &-imgover
+      pos relative
+      oh()
+      w calc(44% - 18px)
+      pt 25%
+      bgc $blue
+      @media $lDesktopSmall
+        w calc(44% - 16px)
+      @media $LandscapeMax
+        w 100%
+        pt 35%
+        max-width 460px
+      @media $PortraitMax
+        max-width inherit
+        pt 0
+        bgc transparent
+    &-img
+      pos absolute
+      t 0
+      r 0
+      l 0
+      b 0
+      object-fit cover
+      transition .7s opacity
+      ^[-1]-imgover:hover &
+        opacity .85
+      @media $PortraitMax
+        pos relative
+        w 100%
+    &-content
+      w calc(56% - 18px)
+      pt 15px
+      @media $lDesktopSmall
+        w calc(56% - 16px)
+      @media $LandscapeMax
+        w 100%
+      @media $LandscapeMax
+        pt 19px
+    &-name
+      c $dark
+      fontify 30px 500 34px
+      letter-spacing -.008em
+      border-bottom 1px solid alpha($dark, .4)
+      transition .7s border-color, .7s color
+      @media $lDesktopSmall
+        fontify 24px 500 30px
+      @media $PortraitMax
+        fontify 22px 500 28px
+      &:hover
+        border-color transparent
+        c $red
+    &-text
+      mt 17px

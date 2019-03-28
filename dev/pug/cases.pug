@@ -1,0 +1,58 @@
+include bemto/bemto.pug
+include mixins/index
+
+doctype html
+html
+  head(lang="ru")
+    include layout/__head
+  body
+    include layout/__header
+  
+    +b('main').main
+      .container
+        .h-wrapper
+          .h-col1
+          .h-col11.h-col_tablet-wide
+            +b('section').text._wide
+              +e('span').bg(style="background-image: url('img/text-bg.jpg')")
+              +b('section').breadcrumbs
+                +e.href(href="#") Главная
+                +e('span').delim / 
+              +e.content
+                h1 Кейсы
+                +b('ul').news
+                  +e.item
+                    +e.item-imgover(href="#")
+                      +e.item-img(src="img/news1.jpg")
+                    +e.item-content
+                      +e.item-name(href="#") Таможенное оформление мотоцикла за 4 часа
+                      +e.item-text
+                        p Women’s World Record 2018 - грандиозный мотопробег, во время которого четыре мотоциклистки из США, Латвии, Швейцарии и России отправились в кругосветное путешествие по трем частям света на своих железных конях.
+                  +e.item
+                    +e.item-imgover(href="#")
+                      +e.item-img(src="img/news2.jpg")
+                    +e.item-content
+                      +e.item-name(href="#") Растаможка рыбоперерабатывающей линии
+                      +e.item-text 
+                        p Women’s World Record 2018 - грандиозный мотопробег, во время которого четыре мотоциклистки из США, Латвии, Швейцарии и России отправились в кругосветное путешествие по трем частям света на своих железных конях.
+                        p «СДМ-групп» занялась растаможкой линии.
+                  +e.item
+                    +e.item-imgover(href="#")
+                      +e.item-img(src="img/news3.jpg")
+                    +e.item-content
+                      +e.item-name(href="#") Экспорт чайного гриба в Латвию
+                      +e.item-text 
+                        p Известный приморский агрохолдинг нашел в Латвии покупателя на 5 тонн концентрата чайного гриба, однако по ряду причин посчитал нецелесообразным заключать с ним прямой контракт. 
+                        p Компания «СДМ-Групп» оформила контракт на свое имя, провела таможенное оформление и реализовала перевозку. 
+                  +e.item
+                    +e.item-imgover(href="#")
+                      +e.item-img(src="img/news4.jpg")
+                    +e.item-content
+                      +e.item-name(href="#") Перевозка бетонных плит
+                      +e.item-text 
+                        p Клиент заказал в Китае 3 000 тонн бетонных плит для строительства многоэтажных домов. Плиты в виду своих размеров и веса требовали особенных технологических условий погрузки и разгрузки. «СДМ-групп» организовала таможенное оформление, перегрузку плит с судна на машины и доставку в Хабаровск.
+                
+                include layout/__pagination
+
+    include layout/__footer
+    include layout/__scripts
