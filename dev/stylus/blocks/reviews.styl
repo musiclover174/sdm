@@ -5,8 +5,10 @@
     mb 140px
     @media $LandscapeMax
       mb 100px
-  &:not(:first-child)
+  /.text + &
     mt 30px
+  /h1 + &
+    mt 50px
   &__maintitle
     fontify 44px 700 48px
     margin 70px 0 39px
@@ -17,8 +19,13 @@
   &__item
     &:not(&_wide)
       df(flex-start, space-between)
+      padding 50px calc(10% - 10px)
       @media $LandscapeMax
-        flex-direction column
+        padding 0
+      @media $PortraitMax 
+        flex-direction column-reverse
+        & ^[-1]-from
+          dn()
     pos relative
     z-index 1
     padding 44px 13% 50px
@@ -45,6 +52,21 @@
       mt 20px
       @media $LandscapeMax
         mt 60px
+    &-content
+      w 65%
+      @media $PortraitMax 
+        w 100%
+    &-side
+      w 220px
+      mt 5px
+      ml 60px
+      @media $PortraitMax 
+        w 100%
+        mt 0
+        ml 0
+        mb 0px
+    &-img
+      mb 24px
     &-name
       c $dark
       fontify 30px 500 34px
@@ -60,6 +82,8 @@
       fontify 15px 400 19px
       @media $lDesktopSmall
         fontify 14px 400 18px
+      @media $PortraitMax 
+        dn()
       & + ^[-1]-date
         mt 9px
     &-date
