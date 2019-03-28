@@ -5700,11 +5700,25 @@ html.no-touchevents .types__item:hover .types__item-icon {
     padding-top: 19px;
   }
 }
+.news__item-date {
+  color: #999;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 19px;
+  margin-bottom: 10px;
+}
+@media (max-width: 1600px) {
+  .news__item-date {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+  }
+}
 .news__item-name {
   color: #242424;
   font-size: 30px;
   font-weight: 500;
-  line-height: 34px;
+  line-height: 37px;
   letter-spacing: -0.008em;
   border-bottom: 1px solid rgba(36,36,36,0.4);
   -webkit-transition: 0.7s border-color, 0.7s color;
