@@ -1,0 +1,7 @@
+mixin file(name="file1", req=false)
+  .common__fileover
+    if req
+      input(type="file", name="", data-type="file", data-req="req", id=name).common__file.js-common-fileinput
+    else 
+      input(type="file", name="", id=name).common__file.js-common-fileinput
+    label(for=name, data-default="").common__filename.js-common-file 

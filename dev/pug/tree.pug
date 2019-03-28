@@ -7,19 +7,26 @@ html
   body
     include layout/__header
   
-    +b('main').content
+    +b('main').main
       .container
-        +b('section').text
-          h1 Разводящая
-          +b('section').breadcrumbs
-            +e.href(href="#") Главная
-            +e('span').delim / 
-          +e.content
-            ul
-              li
-                a(href="index") Главная
-              li
-                a(href="text") Типовая текстовая
-       
+        .h-wrapper
+          .h-col1
+          .h-col8.h-col_tablet-wide
+            +b('section').text
+              +e('span').bg(style="background-image: url('img/text-bg.jpg')")
+              +b('section').breadcrumbs
+                +e.href(href="#") Главная
+                +e('span').delim / 
+              +e.content
+                h1 Разводящая
+                ul
+                  li 
+                    a(href="/index") Главная
+                  li 
+                    a(href="/text") Типовая текстовая
+                  li 
+                    a(href="/vacancy") Вакансии
+          .h-col3.h-col_snews
+
     include layout/__footer
     include layout/__scripts

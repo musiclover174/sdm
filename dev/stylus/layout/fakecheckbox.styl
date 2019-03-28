@@ -3,18 +3,19 @@
   pos relative
   &__label
     ib()
-    color alpha(black, .4)
-    fontify 14px 300 20px
+    c $dark
+    fontify 16px 400 26px
     pos relative
-    pl 34px
-    pt 2px
+    pl 37px
+    @media $lDesktopSmall
+      fontify 15px 400 25px
     &:before 
       content ""
       pos absolute
       l 0px
       t 1px
-      size 18px
-      border 1px solid #e3e3e3
+      size 22px
+      border 1px solid #eaebf3
       cursor pointer
       transition .5s border
     &:after
@@ -22,8 +23,8 @@
       pos absolute
       size 11px 9px
       background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAJCAMAAADTuiYfAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAQlBMVEXxFR3xFR3xFR3xFR3xFR3xFR3xFR3xFR3xFR3xFR3xFR3xFR3xFR3xFR3xFR3xFR3xFR3xFR3xFR3xFR3xFR3///+/okeeAAAAFHRSTlMAILwd37veHgiSFpPUNhXT3dwcuUr5jKcAAAABYktHRBXl2PmjAAAACXBIWXMAAAsSAAALEgHS3X78AAAAB3RJTUUH4wEXDCAG2Vf96QAAADVJREFUCNdjYIACRiZmOJNFhBXBZGNHYXJwcsFFuUV4eGEK+PhFREQEoGr5BOFMBgYhYSgTAFSJAfXKQ3X+AAAAAElFTkSuQmCC') no-repeat center
-      l 5px
-      t 7px
+      l 7px
+      t 9px
       opacity 0
       cursor pointer
       transition .5s opacity
@@ -44,4 +45,4 @@
     &:checked + ^[0]__label:after
       opacity 1
     &.warning + ^[0]__label:before 
-      border-color #ff0f37
+      border-color $red

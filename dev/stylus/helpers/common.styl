@@ -73,30 +73,47 @@ body
     fontify 16px 700 20px
     border-bottom 1px solid $blue
     transition .7s border
+    @media $lDesktopSmall
+      fontify 15px 700 20px
     &:hover
       border-color transparent
   &__label
     db()
-    c #a3a3a3
-    fontify 16px 400 26px
-    mb 6px
+    c #999
+    fontify 15px 400 26px
+    mb 2px
+    @media $lDesktopSmall
+      fontify 14px 400 25px
     span 
       c $red
   &__input
     w 100%
-    h 40px
+    h 43px
     padding 0 20px
-    border 1px solid #e3e3e3
+    border 1px solid #eaebf3
     bgc transparent
     color black
     font-family $os
     font-size 16px
-    line-height 400
     transition .7s border
     &:focus
-      border-color $blue
-    &.warning + ^[0]__inperror
-      db()
+      border-color $dark
+  &__textarea
+    w 100%
+    h 123px
+    padding 7px 20px
+    border 1px solid #eaebf3
+    resize none
+    overflow hidden
+    bgc transparent
+    color black
+    font-family $os
+    fontify 16px 400 27px
+    transition .7s border
+    @media $lDesktopSmall
+      fontify 15px 400 25px
+    &:focus
+      border-color $dark
   &__inperror
     dn()
     c $red
@@ -115,33 +132,84 @@ body
     transition .5s border
     &.warning
       border-color #ed1c24
-  &__placeholder
-    pos absolute
-    z-index -1
-    l 0 
-    t 0
-    color alpha(white, .5)
-    fontify 13px 400 35px
-    letter-spacing .1em
-    text-transform uppercase
-    text-overflow ellipsis
-    white-space nowrap
-    overflow hidden
-    max-width 100%
-    transition .7s top, .7s line-height
-  &__row
-    & + &
-      mt 13px
-  &__submit
+  &__customfile
+    w 100%
+    h 43px
+    padding 0 20px
+    border 1px solid #eaebf3
+    bgc transparent
+    color black
+    font-family $os
+    font-size 16px
+    transition .7s border
+    @media $lDesktopSmall
+      font-size 15px
+    &:focus
+      border-color $dark
+  &__fileover
     pos relative
-    mt 16px
-    &:after
-      content ""
-      display inline-block
-      vertical-align middle
-      ml 11px
-      size 6px 8px
-      background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAICAQAAABwz0azAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfjARcMMxxF2kUBAAAARElEQVQI113MsQmAQADF0M9VziI3g1u4x43iHnbOoOvYWsmzEBFNFwiJatOLSCzYDbd0ZhxGiSgmnFrJi1/2GVTrs74AcOE7wetvz7gAAAAASUVORK5CYII=') no-repeat center
+    & + &
+      mt 20px
+  &__file
+    pos absolute
+    w 0
+    h 0
+    l 0
+    t 0
+    opacity 0
+    &name
+      db()
+      pos relative
+      border 1px solid #eaebf3
+      cursor pointer
+      color $dark
+      h 43px
+      pl 43px
+      overflow hidden
+      white-space nowrap
+      text-overflow ellipsis
+      fontify 16px 400 41px
+      transition .7s border-color
+      @media $lDesktopSmall
+        font-size 15px
+      &.warning
+        border-color $red
+      &:hover
+        border-color $dark
+      &:before
+        content ""
+        pos absolute
+        l 13px
+        t 13px
+        size 17px 16px
+        background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAQCAQAAABaOFzUAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfjAxwJGC3Jfq7YAAABUElEQVQoz23Qv0uUAQDG8c+9p1BQi6JxwkHI+w+ES0PY1GBDnYVTcRYq9uoNQg02uTU0FIldQ6AUFeHULyLT1EEcgi68EtGlC9KDCAwyMOKq4XrpDvrOXx6e50mEXHbRL3eN+e4/BHKuKHppxLKUlKuS9UoiLCk7ouKkh0oeGXVfr0ptSos3KnisW7sT7jhjsjYpsKhHCvu80C3U4Z6s24JYSTatG3bUjFdCN62IJM3JSnsaK2Uf5Bz2UZ+98t6LBOZltXlWVXhn05BtBf0a5a2J/LbgnFbPqwpvbRnyRVG/QN6aYSVLBjWYryoUfBYpWzWAW/Y775i0yFwi/LcuZ9yCXcdNO6RVsz02rMQp8NpXF3wy45RGvdb91C7TUPf1DYFrfkjZ/ftvm51APddd0mVWM+iR8aC2S8yACTumpXUp6qztElPwxEGnHTDlrG9/AOmjXuxCPtAhAAAAAElFTkSuQmCC') no-repeat center
+  &__row
+    font-size 0
+    & + &
+      mt 14px
+      @media $lDesktopSmall
+        mt 11px
+  &__cols
+    df(flex-start, space-between)
+    @media $PortraitMax
+      flex-direction column
+  &__col
+    w calc(50% - 18px)
+    @media $PortraitMax
+      w 100%
+      & + &
+        mt 11px
+  &__bottom
+    mt 32px
+    df(center, space-between)
+    @media $PortraitMax
+      flex-direction column
+      align-items flex-start
+      mt 20px
+  &__submit
+    flex-shrink 0
+    @media $PortraitMax
+      mt 20px
       
 input.warning,
 textarea.warning

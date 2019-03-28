@@ -1,0 +1,60 @@
+include bemto/bemto.pug
+include mixins/index
+
+doctype html
+html
+  head(lang="ru")
+    include layout/__head
+  body
+    include layout/__header
+  
+    +b('main').main
+      .container
+        .h-wrapper
+          .h-col2
+          .h-col8.h-col_tablet-wide
+            +b('section').text
+              +e('span').bg(style="background-image: url('img/text-bg.jpg')")
+              +b('section').breadcrumbs
+                +e.href(href="#") Главная
+                +e('span').delim / 
+                +e.href(href="#") Компания
+                +e('span').delim / 
+              +e.content
+                h1 Вакансии
+                p Для успешного решения задач наших клиентов мы собрали команду из опытных специалистов. Большинство сотрудников CDM Group работало как в логистических провайдерах, так и в штате таможенных органах. Это позволяет нам глубже понимать логистические процессы и обеспечивать клиентам максимальную оперативность и высокий уровень сервиса.
+                p Большинство сотрудников CDM Group работало как в логистических провайдерах, так и в штате таможенных органах. Это позволяет нам глубже понимать логистические процессы и обеспечивать клиентам максимальную оперативность и высокий уровень сервиса.
+                +b('section').summary
+                  +e('p').title Отправить резюме
+                  +e('p').subtitle Обратите внимание, поля со звездочкой 
+                    span *
+                    |  — обязательны для заполнения.
+                  +e('form').form
+                    .common__row
+                      .common__cols
+                        .common__col
+                          .common__row
+                            label.common__label Имя
+                              span *
+                            input(type="text", data-req="req").common__input
+                          .common__row
+                            label.common__label Телефон
+                              span *
+                            input(type="text", data-req="req").common__input.js-phone
+                        .common__col
+                          .common__row
+                            label.common__label Электронная почта
+                            input(type="text").common__input
+                          .common__row
+                            label.common__label Резюме
+                              span *
+                            +file('file1', true)
+                    .common__row
+                      label.common__label Комментарий
+                      textarea.common__textarea
+                    .common__bottom
+                      +fakecheckbox()
+                      button(type="submit").common__submit.btn Отправить
+
+    include layout/__footer
+    include layout/__scripts

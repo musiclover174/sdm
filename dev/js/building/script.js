@@ -5,7 +5,7 @@ import {
 import Index from './modules/index';
 import Burger from './modules/burger';
 // import Contacts from './modules/contacts';
-// import Forms from './modules/forms';
+import Forms from './modules/forms';
 // import Share from './modules/share';
 import Sticky from './modules/sticky';
 // import Realized from './modules/realized';
@@ -49,11 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
   //   contacts.init();
   // }
 
-  // if (qs('.js-burger')) {
-  //   const burger = new Burger(qs('.js-burger'));
-  // }
-
-  // if (qsAll('form').length) Forms.init();
+  if (qsAll('form').length) Forms.init();
 
   // if (qsAll('.js-share').length) {
   //   qsAll('.js-share').forEach((shBtn) => {

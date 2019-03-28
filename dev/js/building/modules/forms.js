@@ -30,41 +30,25 @@ export default class Forms {
     });
 
     const date = qs('.js-date');
-    const dateMask = new IMask(date, {
-      mask: Date,
-      min: new Date(),
-      max: new Date(2030, 0, 1),
-    });
+    if (date) {
+      const dateMask = new IMask(date, {
+        mask: Date,
+        min: new Date(),
+        max: new Date(2030, 0, 1),
+      });
+    }
 
     if (qsAll('.js-common-file').length) {
       const commonFile = qsAll('.js-common-fileinput');
-      const commonFileDelete = qsAll('.js-common-filedelete');
 
       commonFile.forEach((fileInp) => {
         fileInp.addEventListener('change', () => {
           const el = fileInp.nextElementSibling;
           const path = fileInp.value.split('\\');
-          let pathName = path[path.length - 1].split('');
-
-          if (pathName.length >= 20) {
-            pathName = `${pathName.slice(0, 18).join('')}...`;
-          } else {
-            pathName = pathName.join('');
-          }
+          const pathName = path[path.length - 1];
 
           el.textContent = pathName;
           el.classList.add('choosed');
-        });
-      });
-
-      commonFileDelete.forEach((fileDelete) => {
-        fileDelete.addEventListener('click', () => {
-          const el = fileDelete.previousElementSibling;
-          const fileInput = fileDelete.previousElementSibling.previousElementSibling;
-
-          el.textContent = el.getAttribute('data-default');
-          fileInput.value = '';
-          el.classList.remove('choosed');
         });
       });
     }
@@ -137,7 +121,7 @@ export default class Forms {
               break;
             case 'file':
               if (elem.value.trim() === '') {
-                elem.parentNode.classList.add('warning');
+                elem.nextElementSibling.classList.add('warning');
                 checkResult = false;
               }
               break;
