@@ -2454,16 +2454,16 @@ body {
   vertical-align: top;
   color: #000;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 20px;
-  border-bottom: 1px solid #272a4f;
+  border-bottom: 1px solid rgba(39,42,79,0.25);
   -webkit-transition: 0.7s border;
   transition: 0.7s border;
 }
 @media (max-width: 1600px) {
   .common__back {
     font-size: 15px;
-    font-weight: 700;
+    font-weight: 500;
     line-height: 20px;
   }
 }
@@ -5576,6 +5576,27 @@ html.no-touchevents .types__item:hover .types__item-icon {
     font-size: 14px;
     font-weight: 400;
     line-height: 24px;
+  }
+}
+.news__elem-date {
+  color: #999;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  margin-top: 38px;
+  margin-bottom: 62px;
+}
+@media (max-width: 1600px) {
+  .news__elem-date {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 18px;
+  }
+}
+@media (max-width: 1000px) {
+  .news__elem-date {
+    margin-bottom: 40px;
+    margin-top: 28px;
   }
 }
 .news__item {
