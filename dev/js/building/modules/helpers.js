@@ -106,6 +106,28 @@ function elemVisCheck() {
   });
 }
 
+function eventsDispatcher() {
+  let eventScroll;
+  try {
+    eventScroll = new Event('scroll');
+  } catch (e) {
+    eventScroll = document.createEvent('Event');
+    eventScroll.initEvent('scroll', false, false);
+  }
+  window.dispatchEvent(eventScroll);
+
+  let resizeScroll;
+  try {
+    resizeScroll = new Event('resize');
+  } catch (e) {
+    resizeScroll = document.createEvent('Event');
+    resizeScroll.initEvent('scroll', false, false);
+  }
+  window.dispatchEvent(resizeScroll);
+}
+
+const getStyle = elem => getComputedStyle(elem);
+
 export {
   fadeIn,
   fadeOut,
@@ -115,4 +137,6 @@ export {
   elemVisCheck,
   qs,
   qsAll,
+  getStyle,
+  eventsDispatcher,
 };

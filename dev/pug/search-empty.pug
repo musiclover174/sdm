@@ -1,0 +1,29 @@
+include bemto/bemto.pug
+include mixins/index
+
+doctype html
+html
+  head(lang="ru")
+    include layout/__head
+  body
+    include layout/__header
+  
+    +b('main').main
+      .container
+        .h-wrapper
+          .h-col1
+          .h-col11.h-col_tablet-wide
+            +b('section').text._wide
+              +b('section').breadcrumbs
+                +e.href(href="#") Главная
+                +e('span').delim / 
+              +e.content
+                h1 Ничего не найдено
+                +b('section').search._empty
+                  +e('form').form
+                    input(type="text", data-req="req", value="Грузоперевозки").common__input.common__input_wb
+                    +e.sbm.btn(type="submit") Искать
+                  +e('p').info По вашему запросу «Грузоперевозки» ничего не найдено.
+
+    include layout/__footer
+    include layout/__scripts

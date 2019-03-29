@@ -1,0 +1,42 @@
+.search
+  &_empty
+    pb 150px
+  &__form
+    df()
+    max-width 840px
+    mb 28px
+    pt 8px
+  &__sbm
+    flex-shrink 0
+    ml 36px
+  &__info
+    c $dark
+    mb 71px
+    fontify 16px 400 26px
+    @media $lDesktopSmall
+      fontify 15px 400 25px
+    &:last-child
+      mb 0
+    span
+      c $red
+  &__list
+    max-width 940px
+  &__item
+    & + &
+      mt 32px
+    &-href
+      c $dark
+      fontify 30px 500 37px
+      border-bottom 1px solid alpha($dark, .25)
+      transition .7s border-color, .7s color
+      @media $lDesktopSmall
+        fontify 24px 700 30px
+      &:hover
+        border-color transparent
+        c $red
+    &-text
+      c $dark
+      fontify 16px 400 26px
+      mt 17px
+      @media $lDesktopSmall
+        fontify 15px 400 25px

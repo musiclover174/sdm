@@ -1,5 +1,5 @@
 import {
-  resizeWatcher, elemVisCheck, qsAll, qs,
+  resizeWatcher, elemVisCheck, qsAll, qs, getStyle, eventsDispatcher,
 } from './modules/helpers';
 
 import Index from './modules/index';
@@ -94,15 +94,21 @@ document.addEventListener('DOMContentLoaded', () => {
   //   qs('.js-company-paper').addEventListener('click', () => qs('.js-company-openpaper').click());
   // }
 
-  window.onload = () => document.body.classList.add('load');
+  window.onload = () => {
+    document.body.classList.add('load');
+    eventsDispatcher();
+  };
+
+  window.addEventListener('resize', () => {
+    const mainEl = qs('main');
+    mainEl.removeAttribute('style');
+    const hMain = parseInt(getStyle(mainEl).height, 10);
+    const hFooter = parseInt(getStyle(qs('.footer')).height, 10);
+
+    if (hMain + hFooter < window.innerHeight) {
+      mainEl.style.height = `${window.innerHeight - hFooter}px`;
+    }
+  });
 
   resizeWatcher();
-  let eventScroll;
-  try {
-    eventScroll = new Event('scroll');
-  } catch (e) {
-    eventScroll = document.createEvent('Event');
-    eventScroll.initEvent('scroll', false, false);
-  }
-  window.dispatchEvent(eventScroll);
 });
