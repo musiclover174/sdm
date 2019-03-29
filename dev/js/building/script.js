@@ -4,6 +4,7 @@ import {
 
 import Index from './modules/index';
 import Burger from './modules/burger';
+import Popup from './modules/popup';
 // import Contacts from './modules/contacts';
 import Forms from './modules/forms';
 import Sticky from './modules/sticky';
@@ -32,6 +33,10 @@ document.addEventListener('DOMContentLoaded', () => {
         contactsBlockClass: '.js-contacts-block',
       },
     );
+  }
+
+  if (qs('[data-popup]')) {
+    window.popup = new Popup('[data-popup]');
   }
 
   // if (qs('.js-contacts-map')) {

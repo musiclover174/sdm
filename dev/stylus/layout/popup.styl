@@ -2,25 +2,47 @@
   height 0
 
 .popup
+  display inline-block
+  vertical-align middle
   pos absolute
+  t -1000%
   z-index 1
-  width 90%
-  max-width 640px
+  width 94%
+  max-width 474px
+  padding 42px 40px 56px
   bgc white
-  box-shadow 0 3px 43px rgba(0, 0, 0, 0.08)
-  padding 55px 68px 70px
   opacity 0
+  text-align left
   visibility hidden
   transform scale(.9)
   will-change transform
   transition .7s .7s transform, .7s .7s opacity
+  @media $lDesktopSmall
+    max-width 414px
+  @media $PortraitMedium
+    padding 30px 20px
+  &_search
+    bgc transparent
+    padding 0
+    max-width 634px
+    w calc(100% - 120px)
+    @media $PortraitMedium
+      w calc(100% - 80px)
+    ml -40px
+    & ^[0]__form
+      mt 0
+    & ^[0]__close
+      t 9px
+      @media $PortraitMedium
+        r -40px
   &.show
+    t 0
     pos relative
     opacity 1
     visibility visible
     transform scale(1)
   &__over
-    dfv(center, center)
+    // dfv(center, center)
     padding 30px 0
     t 0
     l 0
@@ -28,72 +50,76 @@
     b 0
     pos fixed
     overflow hidden
+    text-align center
     z-index -1
+    @media $PortraitMedium
+      padding 60px 0 30px
+    &:before
+      content ""
+      display inline-block
+      font-size 0
+      height 100%
+      vertical-align middle
+      width 0
   &__bg
     pos fixed
     z-index 0
     l 0
-    r 0
+    t 0
     b 0
-    h 0
-    bgc white
+    w 0
+    bgc $gblue
     opacity 0
-    transition .7s opacity, .7s height
   &-show
     oh()
     & ^[0]__bg
-      h 100%
-      opacity .9
+      w 100%
+      opacity 1
+      transition .7s opacity, .7s width
+      @media $desktopMin
+        opacity 1
     & ^[0]__over
       overflow-y scroll
       z-index 1000
   &__title
     pos relative
     z-index 1
-    font-family $lf
-    c $blue
-    fontify 48px 700 48px
-    mb 5px
-    &:before
-      content attr(data-text)
-      pos absolute
-      z-index -1
-      color $shadow
-      w calc(100% + 10px)
-      l 10px
-      t 10px
-      transition .7s 1s left, .7s 1s top
+    c $dark
+    fontify 44px 700 48px
+    mb 20px
+    @media $lDesktopSmall
+      fontify 36px 700 40px
+    @media $PortraitMax
+      fontify 30px 700 34px
   &__subtitle
-    color black
+    c $dark
     fontify 16px 400 26px
-    mt 32px
+    @media $lDesktopSmall
+      fontify 15px 400 25px
+  &__hint
+    c $dark
+    fontify 16px 400 24px
+    @media $lDesktopSmall
+      fontify 14px 400 21px
   &__close
     pos absolute
-    t 30px
-    r 30px
-    size 17px 17px
-    background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAQAAACRZI9xAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfjARcMCxxSRfn6AAAAZ0lEQVQoz43S3Q3AIAhG0buDnQc6lO5swhDtQ2PjD9j6xucxEhQgEa8EcFCRAAj1QSfmIsHQVnhoAAA6oQXMyAU9CkFDeQcAMhd5BxSjBCMYetEI9RsumsMFeaeGLLr7zX+99Md/uQFaaijMO9DVBwAAAABJRU5ErkJggg==') no-repeat center
-    transition .7s background
+    z-index 2
+    t -40px
+    r -40px
+    size 23px 23px
+    background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXBAMAAAASBMmTAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAG1BMVEXX2NrX2NrX2NrX2NrX2NrX2NrX2NrX2Nr///8iinRjAAAAB3RSTlMAKb8Y1zD+f3iUTgAAAAFiS0dECIbelXoAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfjAxYOGjIcsjdOAAAAYElEQVQY02MQMmCAAiMBBnVnKJvZXYHBpAQqBWIwuztDJZyhInAKIgRTABaDaQUJwiTAonAzgcKucAmgVBlcgoGBNT2VAasMih5k01DsQXYBituQXY3iHxSfooQBcugAAJttHGzEXMXxAAAAAElFTkSuQmCC') no-repeat center
+    transition .7s background-image
+    @media $PortraitMedium
+      r 0
+      t -40px
     &:hover
-      background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARBAMAAADJQ1rJAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAJFBMVEXxFR3xFR3xFR3xFR3xFR3xFR3xFR3xFR3xFR3xFR3xFR3///8vT7RgAAAACnRSTlMAExToPkDrP3R1DaXSPAAAAAFiS0dECx/XxMAAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfjARcMDAQOaPdrAAAAV0lEQVQI12NgZAADIKXsAGY5CzCwpoAYLOlAIgwk6FYAJNhToEIMDGUOECGQIFQIKNhWAGVxrGCAiU2DmAlUx57CANNb5sAANQ8iCOaDCAgXRCLcAncfABrWD2vPIIGkAAAAAElFTkSuQmCC') no-repeat center
+      background-image url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXBAMAAAASBMmTAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAG1BMVEXOAAzOAAzOAAzOAAzOAAzOAAzOAAzOAAz///80kJFDAAAAB3RSTlMAKb8Y1zD+f3iUTgAAAAFiS0dECIbelXoAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfjAxYOGwtarI4HAAAAYElEQVQY02MQMmCAAiMBBnVnKJvZXYHBpAQqBWIwuztDJZyhInAKIgRTABaDaQUJwiTAonAzgcKucAmgVBlcgoGBNT2VAasMih5k01DsQXYBituQXY3iHxSfooQBcugAAJttHGzEXMXxAAAAAElFTkSuQmCC')
+    &-btn
+      mt 23px
   &__form
-    mt 15px
+    mt 19px
     &_search
       pos relative
-  &__search
-    &-input
-      w 100%
-      h 40px
-      padding 0 60px 0 20px
-      border 1px solid #e3e3e3
-      bgc transparent
-      color black
-      font-family $os
-      font-size 16px
-      line-height 400
-      transition .7s border
-      &:focus
-        border-color $blue
     &-sbm
       pos absolute
       z-index 1
@@ -102,9 +128,28 @@
       size 40px
       background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAARCAQAAAB+puRPAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfjARcNGBwyaNJfAAAA30lEQVQoz32QPU4CcRBHH2TPQNDELNnGzhtgbSI2HoBGQ8P2FhyB1hL1EtYUhoRiEztsSIhgAa4HMFbPgvyB1c3+ppnJvPmsCQAJN5zTIOeFBxbsVAcgJSNiwBUDIjLSPYCYOrMlO4ud2Q8Rxn4V0lskN976dXo88U5RSx7phRFT23/qEdtOQ4cmH/zXJ81wxYaTEqDBJgBjOiXAJeOww8HGZVeEP8SF9JtpiCLgHnhlxDNrjuhwyw/Z4ScRE4dOnDtxaOKFuWf7EWV27drTKgC7rmxVAdh37nFNKnTH9y9AkMAQtzyvuQAAAABJRU5ErkJggg==') no-repeat center $red
       transition .7s background-color
-      &:hover
-        bgc $dred
 
+  &__search
+    &-input
+      w 100%
+      background transparent
+      border 0
+      border-bottom 2px solid white
+      h 45px
+      font-size 16px
+      c white
+      padding 0 60px 0 23px
+      @media $PortraitMedium
+        padding 0
+        pr 35px
+    &-sbm
+      pos absolute
+      t 11px
+      r 25px
+      size 21px 21px
+      background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAQAAAADHm0dAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfjAx0OLApqrZmkAAABCklEQVQoz43SSytFURgG4O/sjI5bJo4YqFMM+CMyZKAoTJQM/DJlQs5EmSGRe0qKiFCMlIF6DA611z7b5VuDtXp7an3rEkIIbWY1POPRumnZV54bzWnUibQO1MvokFdcmtcvDFhwhcciDm1OsaY9F3dqYC9tI8zjQrWwXbdrTKV0E3Oth7CI1ZQ+oa+EDuI2pSiBoYq3fJLFc0QMRGv1RsRLPsjiKCLGSuh4RGwniRlcltzALSbSXjOHaOjKxT22sKtSfK0RT7ixpK5D3bI7cKTW+geG7Rf+wI5jnOXx9yIzZc2DD/dWTKroc57i8POopfg3WsC/0wT/RUPNWRP/Tb/xQUX8o2qxEe+fgqjc9d9GWDMAAAAASUVORK5CYII=') no-repeat center
+      @media $PortraitMedium
+        r 0
 
 .no-touchevents .popup-show
   mr 17px

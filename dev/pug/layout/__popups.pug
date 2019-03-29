@@ -1,0 +1,36 @@
+.hidden-block
+  .popup__over
+    span.popup__bg.js-popbg
+
+    +b.popup._search#search
+      +e.close.js-popclose(type="button", title="Закрыть")
+      +e('form').form
+        input.popup__search-input(type="text", data-req="req", placeholder="Поиск по сайту")
+        button.popup__search-sbm(type="submit", aria-label="Найти")
+
+    +b.popup#feed
+      +e.close.js-popclose(type="button", title="Закрыть")
+      +e('p').title Обратная связь
+      +e('p').hint Обратите внимание – все поля обязательны для заполнеия.
+      +e('form').form
+        .common__row
+          label.common__label ФИО
+          input.common__input(type="text", data-req="req")
+        .common__row
+          label.common__label Электронная почта
+          input.common__input(type="text", data-req="req", data-type="email")
+        .common__row
+          label.common__label Текст сообщения
+          textarea.common__textarea(data-req="req")
+        .common__row
+          +fakecheckbox('agreement2')
+        .common__row
+          img(src="img/captcha.png", style="max-width: 100%;")
+        .common__row
+          button.common__submit.btn(type="submit") Отправить
+
+    +b.popup#text
+      +e.close.js-popclose(type="button", title="Закрыть")
+      +e('p').title Сообщение отправлено
+      +e('p').subtitle Ваше сообщение успешно отправлено
+      +btn('Закрыть', false)(class="popup__close-btn btn js-popclose")
