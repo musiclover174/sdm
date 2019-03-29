@@ -1,9 +1,14 @@
 .gallery
-  df(flex-start, space-between)
-  flex-wrap wrap
   pt 9px
-  @media $LandscapeMedium
-    flex-direction column
+  pb 139px
+  @media $PortraitMax
+    pb 100px
+  &__list
+    df(flex-start, space-between)
+    flex-wrap wrap
+    pt 9px
+    @media $LandscapeMedium
+      flex-direction column
   &__item
     pos relative
     z-index 1
@@ -90,3 +95,70 @@
         fontify 24px 700 30px
       ^[-1]:hover &
         border-color transparent
+  &__elems
+    df()
+    flex-wrap wrap
+    w calc(100% + 36px)
+    ml -36px
+    mb -36px
+    @media $lDesktopSmall
+      w calc(100% + 32px)
+      ml -32px
+      mb -32px
+    @media $LandscapeMin
+      w calc(100% + 16px)
+      ml -16px
+      mb -16px
+  &__elem
+    ml 36px
+    mb 36px
+    w calc(100% / 3 - 36px)
+    @media $lDesktopSmall
+      ml 32px
+      mb 32px
+      w calc(100% / 3 - 32px)
+    @media $LandscapeMedium
+      w calc(50% - 32px)
+    @media $LandscapeMin
+      w calc(50% - 16px)
+      ml 16px
+      mb 16px
+    @media $PortraitMin
+      w calc(100% - 16px)
+    &-href
+      pos relative
+      z-index 1
+      oh()
+      db()
+      w 100%
+      pt 60%
+      &:before
+        content ""
+        pos absolute
+        z-index -1
+        l 0
+        t 0
+        b 0
+        r 0
+        border 0px solid #f6f6fa
+        transition .7s border-width
+      ^[-1]:hover &:before
+        border-bottom-width 18px
+        border-top-width 18px
+        border-left-width 30px
+        border-right-width 30px
+        @media $lDesktopSmall
+          border-left-width 18px
+          border-right-width 18px
+        @media $LandscapeMin
+          border-width 0px
+    &-img
+      pos absolute
+      z-index -2
+      size 100%
+      t 0
+      l 0
+      b 0
+      r 0
+      object-fit cover
+

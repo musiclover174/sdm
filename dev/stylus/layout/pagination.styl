@@ -12,6 +12,12 @@
     mb 139px
     @media $PortraitMax
       mb 100px
+  /.gallery &:last-child
+    mb 0
+    @media $PortraitMax
+      mb 100px
+  &:not(:last-child)
+    mb 60px
   &__prev,
   &__next
     ib()
