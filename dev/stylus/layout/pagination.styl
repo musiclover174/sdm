@@ -1,6 +1,9 @@
 .pagination
   df()
   mt 40px
+  c $dark
+  &_white
+    c white
   @media $lDesktopSmall
     mt 50px
   @media $LandscapeMax
@@ -29,6 +32,8 @@
       background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAPCAQAAACcwS2GAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfjAxwKNDsG3c5+AAAArklEQVQY02XQQUoCYRgG4Gd+WoUohSIhuHGIaCG4C2RghBZ5gA7QLTySeAILi0EJWrRqEeFGXIgIQVgXaDENSn7LZ/G+vF8U27tTQ4OjPah60BF2VDPR9uo2/EFdpu3Fta+czmQuPbuxJaAhc2GmbwtB09S5TN9PnhHFT3q+tXwWPcGdhbKR4x0tJeZ6xkoFsZL6kBgrF8Ra6l3XvUpBbKTeXJk4ieL/Gx+jw0/8AtLHJPJbnJaLAAAAAElFTkSuQmCC') no-repeat center
       transition .7s background
       mt -7px
+      ^[0]_white &
+        background-image url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAPCAQAAACcwS2GAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfjAx0KFx5LzAo9AAAAe0lEQVQY023QPQrCAAyG4SBO/hWlIiLoGfT4RSqI4CAIDiIOegdP8DiUEsEm20vy5SUhfnqmsutHVhlVbKOXE3M3XExbsHDHWSEasPTASSEatPLE0bjZCGsvHAzb1FDjo0yVsPFGbZAos0aJ8uIkUYdXp30IpSv28f+JL1IPoXVaz7cOAAAAAElFTkSuQmCC')
     &:not(.disabled):hover
       &:before
         background-image url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAPCAMAAAABFhU/AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAaVBMVEW2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyr///8iCQGUAAAAIXRSTlMAEroyFM68FdHLERfVxw8Z18Qb2cINHt2/C77xH94KDA4EgQJjAAAAAWJLR0QiXWVcrAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAAd0SU1FB+MDHAo1GlOv72EAAABTSURBVAjXTc7HDoAwDAPQAmXvDWX6/38SOZFQc3oHx4kxMkEYKWyMRJBmyAuirFA3RNuhFwwjpplYVmy7pB0OqwXnBXcrmXuU3H2Vf593w7srv3xghwS8ljln2AAAAABJRU5ErkJggg==')
@@ -43,7 +48,7 @@
     display flex
   &__item
     text-align center
-    color $dark
+    color inherit
     size 43px
     display flex
     align-items center
@@ -64,7 +69,7 @@
         ml 5px
     &-href
       pos relative
-      color $dark
+      color inherit
       fontify 16px 500 16px
       border-bottom 1px solid alpha($dark, .25)
       transition .7s color, .7s border

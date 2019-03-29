@@ -1,0 +1,65 @@
+include bemto/bemto.pug
+include mixins/index
+
+doctype html
+html
+  head(lang="ru")
+    include layout/__head
+  body
+    include layout/__header
+  
+    +b('main').main._white
+      .container
+        .h-wrapper
+          .h-col1
+          .h-col11.h-col_tablet-wide
+            +e('span').color
+            +b('section').breadcrumbs
+              +e.href(href="#") Главная
+              +e('span').delim / 
+              +e.href(href="#") Компания
+              +e('span').delim / 
+            +e.content
+              h1 Фотогалерея
+              +b('ul').gallery
+                +e.item
+                  +e.item-href(href="#")
+                    +e.item-img(src="img/gallery1.jpg")
+                    +e.item-content
+                      +e('p').item-count 47 фотографий
+                      +e('span').item-name Название фотоальбома
+                +e.item
+                  +e.item-href(href="#")
+                    +e.item-img(src="img/gallery2.jpg")
+                    +e.item-content
+                      +e('p').item-count 24 фотографии
+                      +e('span').item-name Очень длинное название фотоальбома
+                +e.item
+                  +e.item-href(href="#")
+                    +e.item-img(src="img/gallery2.jpg")
+                    +e.item-content
+                      +e('p').item-count 11 фотографий
+                      +e('span').item-name Еще более длинное название фотоальбома, но тоже в две строки
+                +e.item
+                  +e.item-href(href="#")
+                    +e.item-img(src="img/gallery3.jpg")
+                    +e.item-content
+                      +e('p').item-count 7 фотографий
+                      +e('span').item-name Название фотоальбома
+                +e.item
+                  +e.item-href(href="#")
+                    +e.item-img(src="img/gallery3.jpg")
+                    +e.item-content
+                      +e('p').item-count 34 фотографии
+                      +e('span').item-name Длинное название фотоальбома
+                +e.item
+                  +e.item-href(href="#")
+                    +e.item-img(src="img/gallery1.jpg")
+                    +e.item-content
+                      +e('p').item-count 19 фотографий
+                      +e('span').item-name Очень длинное название фотоальбома
+                  
+              include layout/__pagination_white
+
+    include layout/__footer
+    include layout/__scripts

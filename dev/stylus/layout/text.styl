@@ -42,8 +42,18 @@ body:not(.index)
 
 .main
   oh()
+  c $dark
+  &_white
+    c white
+  &__color
+    pos absolute
+    z-index -1
+    t 0
+    r 0
+    b 0
+    l 0
+    bgc $gblue
   h1:not([class])
-    color $dark
     fontify 60px 700 64px
     margin 63px 0 30px
     @media $lDesktopSmall
@@ -51,7 +61,6 @@ body:not(.index)
     @media $PortraitMax
       fontify 36px 700 40px
   h2:not([class])
-    color $dark
     fontify 44px 700 48px
     margin 63px 0 32px
     @media $lDesktopSmall
@@ -60,7 +69,6 @@ body:not(.index)
       fontify 30px 700 34px
   h3:not([class]),
   h4:not([class])
-    color $dark
     fontify 30px 700 34px
     margin 66px 0 35px
     @media $lDesktopSmall
@@ -111,7 +119,7 @@ body:not(.index)
     @media $lDesktopSmall
       fontify 15px 400 25px
   a:not([class])
-    c $dark
+    c inherit
     border-bottom 1px solid alpha($dark, .4)
     transition .7s border
     &:hover
