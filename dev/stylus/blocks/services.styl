@@ -1,0 +1,152 @@
+.services
+  &__list
+    df(stretch, space-between)
+    flex-wrap wrap
+    pt 9px
+    pb 140px
+    @media $desktopMin
+      flex-direction column
+    @media $LandscapeMax
+      pb 100px
+  &__item
+    df()
+    pos relative
+    z-index 1
+    oh()
+    w calc(50% - 18px)
+    padding 42px 73px 80px
+    min-height 311px
+    @media $lDesktopSmall
+      w calc(50% - 16px)
+    &:not(:nth-child(1)):not(:nth-child(2))
+      mt 36px
+      @media $lDesktopSmall
+        mt 30px
+      @media $LandscapeMin
+        mt 16px
+    @media $desktopMin
+      w 100%
+      min-height inherit
+      &:nth-child(2)
+        mt 30px
+    @media $LandscapeMax
+      padding 30px 0 40px
+    @media $LandscapeMin
+      &:nth-child(2)
+        mt 16px
+    @media $PortraitMedium
+      flex-direction column
+    &:before
+      content ""
+      pos absolute
+      z-index -1
+      l 0
+      t 0
+      r 0
+      b 0
+      bgc $blue
+      transition .7s left, .7s right, .7s top, .7s bottom
+      @media $LandscapeMax
+        bgc transparent
+    &:hover:before
+      l 30px
+      r 30px
+      t 13px 
+      b 13px
+    &-icon
+      max-width 100%
+      &over
+        w 133px
+        mr 36px
+        flex-shrink 0
+        mt 7px
+        @media $lDesktopSmall
+          w 100px
+          mr 32px
+        @media $PortraitMedium
+          w 100%
+          mr 0
+    &-content
+      w calc(100% - 169px)
+      @media $lDesktopSmall
+        w calc(100% - 132px)
+      @media $PortraitMedium
+        w 100%
+        mt 30px
+    &-namelist
+      dfv()
+      pos relative
+      z-index 2
+    &-nameitem
+      w 100%
+      & + &
+        mt 15px
+        @media $LandscapeMin
+          mt 8px
+    &-href
+      c white
+      fontify 28px 700 32px
+      border-bottom 1px solid alpha(white, .25)
+      transition .7s border-color, .7s color
+      @media $lDesktopSmall
+        fontify 24px 700 30px
+      &:hover
+        border-color transparent
+        c $red
+    &-about
+      mt 17px
+    &-infos
+      df()
+      flex-wrap wrap
+      mt 25px
+      ml -25px
+      mb -24px
+      w calc(100% + 25px)
+    &-info
+      pos relative
+      ml 25px
+      mb 24px
+      &:before
+        content ""
+        pos absolute
+        l 0
+      &[data-type="time"]
+        pl 29px
+        &:before
+          t 0
+          size 19px 19px
+          background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAMAAABFjsb+AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAsVBMVEX///+2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyr////j04UvAAAAOXRSTlMAH3fB5vrCCpD34pEVztZaCwbIlQQqB4+WHvvXBQOGHCCAWaCKWIHE9gyhpcbn42YwpO546NVW9cOFV63fAAAAAWJLR0QAiAUdSAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAAd0SU1FB+MEAQouIVvBno0AAADLSURBVBjTdZDXDsJADASXQIBQQkloRwudAKGFtv//Y5zhQhFiJT94ZN3ZA0hSVjpjZ7JWCklyeZtOgQWHdjH3RKUy3Uq1Ql0uyyVBtTo9H2hYDcD3WG9q1qKHd9psAR3V7Zm+Pxii11UBRhwnaMIpMOMci2Vo0IrrPhA6G0Tb3d6gg0b73fYIm4yFdU6CEJN8zSEQ9Jx7vWcSLjeYc/bF5F+9n/+BfFfv93NH/s+94uV8aYqX8dl40f6KiteHP5X4k93iW6SiWxw8ujsLMBhy/PLA8QAAAABJRU5ErkJggg==') no-repeat center
+      &[data-type="weight"]
+        pl 34px
+        &:before
+          t 0
+          size 23px 17px
+          background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAARCAMAAAABrcePAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAV1BMVEX///+2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyr///+2kaszAAAAG3RSTlMA77vKzMPS8PERjKoIBRAOBnhLWkiZLZB+NuuAzarsAAAAAWJLR0QAiAUdSAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAAd0SU1FB+MEAQovH4O7smcAAABmSURBVBjTnc7JDoAgDEXRqgiCE85C//8/LSGaFF0YzuIt7qIp4DfAoiSVKCNRhS2o10CkgkjJsHV2b3TUJP15hHfT3gzribze6R6GEay2vE84h78XXHhftx2OE9zm/tz37Zun/u0CD/YNgkANIcIAAAAASUVORK5CYII=') no-repeat center
+      &[data-type="save"]
+        pl 29px
+        &:before
+          t 0
+          size 19px 19px
+          background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAMAAABFjsb+AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAxlBMVEW2Kyr///+2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyr////1dN9QAAAAQHRSTlMAAB93weX5wgmO+vfSu48KFc7WWgsGyJUEB5Ye+9cFIIBZA4YcWIHE9gygisbm0aGl7b6k0N2v/TyQ1VaR9XjDH8RLtwAAAAFiS0dEAf8CLd4AAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfjBAEKMjY+ZUYXAAAA4klEQVQY03WQbVPCMBCENyCoLRYoLy1aqIQXqVCqoKiIsP//V3FJYGTGcT/lnsnd7S1gVCpfVaqV63IJUEoZcnPr0a/d1Xx6Qd2xRpNhqy2Pditks2FYp8sohlMcsdsTFjDCr+4ZKDwk/cEFG/STFI8cnms9GgMTTvE0y87omXMg8xfIl1KORxq64IsWf8tXVFfC5iw6BdeCoFZE/mba1nx3yP5z8/TmY2MRstkCU07sgk+H7F7xF1/4i0Px9+eOr3/uNblsv3sml+H2lAtQ3yX8sfklu1N+onR/yL38sE9tzkd9JBom8TuSrgAAAABJRU5ErkJggg==') no-repeat center
+  &__bottom
+    bgc #fafafa
+    c $dark
+    padding 63px 0 137px
+    @media $LandscapeMax
+      padding 33px 0 100px
+    &-title
+      fontify 44px 700 48px
+      margin 70px 0 39px
+      @media $lDesktopSmall
+        fontify 36px 700 40px
+      @media $PortraitMax
+        fontify 30px 700 34px
+  &__toall
+    ib()
+    mt 45px
+    c $dark
+    fontify 16px 500 16px
+    border-bottom 1px solid alpha($dark, .25)
+    transition .7s border-color
+    &:hover
+      border-color transparent

@@ -1,0 +1,130 @@
+include bemto/bemto.pug
+include mixins/index
+
+doctype html
+html
+  head(lang="ru")
+    include layout/__head
+  body
+    include layout/__header
+  
+    +b('main').main._white
+      .container
+        .h-wrapper
+          .h-col1
+          .h-col11.h-col_tablet-wide
+            +e('span').color
+            span.text__bg(style="background-image: url('img/services-bg.jpg')")
+            +b('section').breadcrumbs
+              +e.href(href="#") Главная
+              +e('span').delim / 
+            +e.content
+              h1 Услуги
+              +b('section').services
+                +e('ul').list
+                  +e.item
+                    +e('aside').item-iconover
+                      +e.item-icon(src="img/serv-icon1.png")
+                    +e.item-content
+                      +e('ul').item-namelist
+                        +e.item-nameitem
+                          +e.item-href(href="#") Морская доставка
+                      +e.item-about 
+                        p Подходит, когда нужно привести много и дешево.
+                      +e.item-infos
+                        +e('span').item-info(data-type="time") 5 - 45 суток
+                        +e('span').item-info(data-type="weight") От 100 кг
+                        +e('span').item-info._wide(data-type="save") Полное страхование грузов
+                  +e.item
+                    +e('aside').item-iconover
+                      +e.item-icon(src="img/serv-icon2.png")
+                    +e.item-content
+                      +e('ul').item-namelist
+                        +e.item-nameitem
+                          +e.item-href(href="#") Авиадоставка
+                      +e.item-about 
+                        p Актуально при малой партии, самый быстрый способ доставки.
+                      +e.item-infos
+                        +e('span').item-info(data-type="time") 1 - 4 дня
+                        +e('span').item-info(data-type="weight") От 100 кг
+                        +e('span').item-info._wide(data-type="save") Полное страхование грузов
+                  +e.item
+                    +e('aside').item-iconover
+                      +e.item-icon(src="img/serv-icon3.png")
+                    +e.item-content
+                      +e('ul').item-namelist
+                        +e.item-nameitem
+                          +e.item-href(href="#") Автодоставка
+                      +e.item-about 
+                        p Подходит для оперативной перевозки грузов, в т.ч. сборных, по РФ и из ближнего зарубежья.
+                      +e.item-infos
+                        +e('span').item-info(data-type="time") 1 - 15 суток
+                        +e('span').item-info(data-type="weight") От 100 кг
+                        +e('span').item-info._wide(data-type="save") Полное страхование грузов
+                  +e.item
+                    +e('aside').item-iconover
+                      +e.item-icon(src="img/serv-icon4.png")
+                    +e.item-content
+                      +e('ul').item-namelist
+                        +e.item-nameitem
+                          +e.item-href(href="#") ЖД доставка
+                      +e.item-about 
+                        p Один из самых дешевых и безопасных способов доставки по России.
+                      +e.item-infos
+                        +e('span').item-info(data-type="time") 2 - 12 суток
+                        +e('span').item-info(data-type="weight") От 100 кг
+                        +e('span').item-info._wide(data-type="save") Полное страхование грузов
+                  +e.item
+                    +e('aside').item-iconover
+                      +e.item-icon(src="img/serv-icon5.png")
+                    +e.item-content
+                      +e('ul').item-namelist
+                        +e.item-nameitem
+                          +e.item-href(href="#") Поиск поставщиков в&nbsp;Китае
+                        +e.item-nameitem
+                          +e.item-href(href="#") Таможенное оформление
+                  +e.item
+                    +e('aside').item-iconover
+                      +e.item-icon(src="img/serv-icon6.png")
+                    +e.item-content
+                      +e('ul').item-namelist
+                        +e.item-nameitem
+                          +e.item-href(href="#") Бухгалтерские услуги
+                        +e.item-nameitem
+                          +e.item-href(href="#") Юридические услуги
+
+      section.services__bottom
+        .container
+          .h-wrapper
+            .h-col1
+            .h-col11.h-col_tablet-wide
+              p.services__bottom-title Кейсы
+              +b('ul').news
+                +e.item
+                  +e.item-imgover(href="#")
+                    +e.item-img(src="img/news1.jpg")
+                  +e.item-content
+                    +e.item-name(href="#") Таможенное оформление мотоцикла за 4 часа
+                    +e.item-text
+                      p Women’s World Record 2018 - грандиозный мотопробег, во время которого четыре мотоциклистки из США, Латвии, Швейцарии и России отправились в кругосветное путешествие по трем частям света на своих железных конях.
+                +e.item
+                  +e.item-imgover(href="#")
+                    +e.item-img(src="img/news2.jpg")
+                  +e.item-content
+                    +e.item-name(href="#") Растаможка рыбоперерабатывающей линии
+                    +e.item-text 
+                      p Крупный приморский завод купил в Циндао (Китай) линию по переработке рыбы. Линия разместилась в 18 сорокафутовых контейнерах. 
+                      p «СДМ-групп» занялась растаможкой линии.
+                +e.item
+                  +e.item-imgover(href="#")
+                    +e.item-img(src="img/news3.jpg")
+                  +e.item-content
+                    +e.item-name(href="#") Экспорт чайного гриба в Латвию
+                    +e.item-text 
+                      p Известный приморский агрохолдинг нашел в Латвии покупателя на 5 тонн концентрата чайного гриба, однако по ряду причин посчитал нецелесообразным заключать с ним прямой контракт. 
+                      p Компания «СДМ-Групп» оформила контракт на свое имя, провела таможенное оформление и реализовала перевозку. 
+              a(href="#").services__toall Все кейсы
+                
+
+    include layout/__footer
+    include layout/__scripts
