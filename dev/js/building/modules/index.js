@@ -1,24 +1,10 @@
-import {
-  qs,
-  qsAll,
-  fadeOut,
-  fadeIn,
-} from './helpers';
+import { qs } from './helpers';
 
 export default class Index {
-  constructor(
-    {
-      logoClass,
-      contactsTabClass,
-      contactsBlockClass,
-    },
-  ) {
+  constructor(logoClass) {
     this.logoClass = logoClass;
-    this.contactsTabClass = contactsTabClass;
-    this.contactsBlockClass = contactsBlockClass;
 
     if (qs(logoClass)) this.logoAnimation();
-    if (qs(contactsTabClass)) this.tabsInit();
   }
 
   logoAnimation() {
@@ -55,23 +41,6 @@ export default class Index {
         eventScroll.initEvent('scroll', false, false);
       }
       window.dispatchEvent(eventScroll);
-    })
-  }
-
-  tabsInit() {
-    qsAll(this.contactsTabClass).forEach((btn) => {
-      btn.addEventListener('click', () => {
-        if (!btn.classList.contains('active')) {
-          qs(`${this.contactsTabClass}.active`).classList.remove('active');
-          fadeOut(qs(`${this.contactsBlockClass}.active`), 200, () => {
-            qs(`${this.contactsBlockClass}.active`).classList.remove('active');
-            btn.classList.add('active');
-            fadeIn(qs(`${this.contactsBlockClass}[data-id="${btn.getAttribute('data-id')}"]`), 200, () => {
-              qs(`${this.contactsBlockClass}[data-id="${btn.getAttribute('data-id')}"]`).classList.add('active');
-            }, 'flex');
-          });
-        }
-      })
     });
   }
 }

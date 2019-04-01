@@ -1,32 +1,80 @@
+import { 
+  qs,
+  qsAll,
+  fadeIn,
+  fadeOut,
+} from './helpers';
+
 export default class Contacts {
-  constructor(mapId) {
-    this.el = document.querySelector('.js-contacts-map');
-    this.mapId = mapId;
+  constructor(mapElem, tabClass, blockClass) {
+    this.el = qs(mapElem);
+
+    this.tabs = qsAll(tabClass);
+    this.tabClass = tabClass;
+    this.blockClass = blockClass;
+
+    if (this.el) ymaps.ready(this.init.bind(this));
+    if (this.tabs) this.tabsInit();
   }
 
   init() {
+    const pinCoord = this.el.getAttribute('data-center').split(':');
+    const officeCoord = this.el.getAttribute('data-office').split(':');
+
+    this.myMap = new ymaps.Map(this.el, {
+      center: [parseFloat(pinCoord[0]), parseFloat(pinCoord[1])],
+      zoom: 3,
+      controls: ['smallMapDefaultSet'],
+    });
+
+    this.myMap.behaviors.disable('scrollZoom');
+
+    const { locations } = this.el.dataset;
+    locations.split(', ').forEach((item) => {
+      const coords = item.split(':');
+
+      const HouseMarker = new ymaps.Placemark(
+        [parseFloat(coords[0]), parseFloat(coords[1])], {}, {
+          iconLayout: 'default#image',
+          iconImageSize: [38, 16],
+          iconImageHref: './img/pin.png',
+          iconImageOffset: [-32, -8],
+        },
+      );
+      this.myMap.geoObjects.add(HouseMarker);
+    });
+
+    const OfficeMarker = new ymaps.Placemark(
+      [parseFloat(officeCoord[0]), parseFloat(officeCoord[1])], {}, {
+        iconLayout: 'default#image',
+        iconImageSize: [38, 16],
+        iconImageHref: './img/office-pin.png',
+        iconImageOffset: [-32, -8],
+      },
+    );
+    this.myMap.geoObjects.add(OfficeMarker);
+  }
+
+  tabsInit() {
     const t = this;
 
-    function mapInit() {
-      const pinCoord = t.el.getAttribute('data-coords').split(', ');
-
-      const myMap = new ymaps.Map(t.mapId, {
-        center: [parseFloat(pinCoord[0]), parseFloat(pinCoord[1])],
-        zoom: window.innerWidth <= 1000 ? 15 : 17,
-        controls: ['smallMapDefaultSet']
-      });
-
-      const PMitem = new ymaps.Placemark([parseFloat(pinCoord[0]), parseFloat(pinCoord[1])], {}, {
-        iconLayout: 'default#image',
-        iconImageSize: [19, 32],
-        iconImageHref: '/static/i/pin.png',
-        // iconImageOffset: [0, -42],
-      });
-
-      myMap.behaviors.disable('scrollZoom');
-      myMap.geoObjects.add(PMitem);
-    }
-
-    ymaps.ready(mapInit);
+    this.tabs.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        if (!btn.classList.contains('active')) {
+          qs(`${this.tabClass}.active`).classList.remove('active');
+          fadeOut(qs(`${this.blockClass}.active`), 200, () => {
+            qs(`${this.blockClass}.active`).classList.remove('active');
+            btn.classList.add('active');
+            fadeIn(qs(`${this.blockClass}[data-id="${btn.getAttribute('data-id')}"]`), 200, () => {
+              qs(`${this.blockClass}[data-id="${btn.getAttribute('data-id')}"]`).classList.add('active');
+              if (t.myMap) {
+                const btnCoords = btn.getAttribute('data-coords').split(':');
+                t.myMap.setCenter([parseFloat(btnCoords[0]), parseFloat(btnCoords[1])], 18);
+              }
+            }, 'flex');
+          });
+        }
+      })
+    });
   }
 }

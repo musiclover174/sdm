@@ -5,7 +5,7 @@ import {
 import Index from './modules/index';
 import Burger from './modules/burger';
 import Popup from './modules/popup';
-// import Contacts from './modules/contacts';
+import Contacts from './modules/contacts';
 import Forms from './modules/forms';
 import Sticky from './modules/sticky';
 
@@ -26,23 +26,16 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (document.body.classList.contains('index')) {
-    const index = new Index(
-      {
-        logoClass: '.js-logo',
-        contactsTabClass: '.js-contacts-tab',
-        contactsBlockClass: '.js-contacts-block',
-      },
-    );
+    const index = new Index('.js-logo');
   }
 
   if (qs('[data-popup]')) {
     window.popup = new Popup('[data-popup]');
   }
 
-  // if (qs('.js-contacts-map')) {
-  //   const contacts = new Contacts('map');
-  //   contacts.init();
-  // }
+  if (qs('.js-contacts-map') || qs('.js-contacts-tab')) {
+    const contacts = new Contacts('.js-contacts-map', '.js-contacts-tab', '.js-contacts-block');
+  }
 
   if (qs('.js-gallery')) {
     lightGallery(qs('.js-gallery'), {

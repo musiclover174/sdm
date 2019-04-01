@@ -1,0 +1,120 @@
+include bemto/bemto.pug
+include mixins/index
+
+doctype html
+html
+  head(lang="ru")
+    include layout/__head
+  body
+    include layout/__header
+  
+    +b('main').main
+      .container
+        .h-wrapper
+          .h-col1
+          .h-col11.h-col_tablet-wide
+            +b('section').text._wide
+              +e('span').bg(style="background-image: url('img/text-bg.jpg')")
+              +b('section').breadcrumbs
+                +e.href(href="#") Главная
+                +e('span').delim / 
+              +e.content
+                h1 Контакты
+                +b('section').contacts
+                  +e('ul').tabs
+                    +e('li').tab
+                      +e.href.active.js-contacts-tab(type="button", data-id="1" aria-label="Головной офис", data-coords="43.096092:131.862398") Головной офис
+                    +e('li').tab
+                      +e.href.js-contacts-tab(type="button", data-id="2" aria-label="Филиал в Москве", data-coords="55.650145:37.539626") Филиал в Москве
+                    +e('li').tab
+                      +e.href.js-contacts-tab(type="button", data-id="3" aria-label="Филиал в Санкт-Петербурге", data-coords="59.927279:30.383296") Филиал в Санкт-Петербурге
+                    +e('li').tab
+                      +e.href.js-contacts-tab(type="button", data-id="4" aria-label="Склад", data-coords="39.897851:116.357413") Склад
+                  +e('ul').blocks
+                    +e.block.js-contacts-block.active(data-id="1")
+                      +e.info._address
+                        +e('p').info-title Адрес
+                        +e('p').info-text Владивосток, улица Стрельникова, 3Б, офис 501
+                      +e.info
+                        +e('p').info-title Телефон
+                        +e('p').info-text 
+                          +e.info-text(href="+74232055659") +7 (423) 205-56-59
+                      +e.info
+                        +e('p').info-title Электронная почта
+                        +e('p').info-text 
+                          +e.info-mail(href="mailto:info@cdm.com") info@cdm.com
+                      +e.info
+                        +e('p').info-title Часы работы
+                        +e('p').info-text 09:00 – 20:00 (GTM +10)
+                    +e.block.js-contacts-block(data-id="2")
+                      +e.info._address
+                        +e('p').info-title Адрес
+                        +e('p').info-text Владивосток, улица Стрельникова, 3Б, офис 501
+                      +e.info
+                        +e('p').info-title Телефон
+                        +e('p').info-text 
+                          +e.info-text(href="+74232055659") +7 (423) 205-56-59
+                      +e.info
+                        +e('p').info-title Электронная почта
+                        +e('p').info-text 
+                          +e.info-mail(href="mailto:info@cdm.com") info@cdm.com
+                      +e.info
+                        +e('p').info-title Часы работы
+                        +e('p').info-text 09:00 – 20:00 (GTM +10)
+                    +e.block.js-contacts-block(data-id="3")
+                      +e.info._address
+                        +e('p').info-title Адрес
+                        +e('p').info-text Владивосток, улица Стрельникова, 3Б, офис 501
+                      +e.info
+                        +e('p').info-title Телефон
+                        +e('p').info-text 
+                          +e.info-text(href="+74232055659") +7 (423) 205-56-59
+                      +e.info
+                        +e('p').info-title Электронная почта
+                        +e('p').info-text 
+                          +e.info-mail(href="mailto:info@cdm.com") info@cdm.com
+                      +e.info
+                        +e('p').info-title Часы работы
+                        +e('p').info-text 09:00 – 20:00 (GTM +10)
+                    +e.block.js-contacts-block(data-id="4")
+                      +e.info._address
+                        +e('p').info-title Адрес
+                        +e('p').info-text Владивосток, улица Стрельникова, 3Б, офис 501
+                      +e.info
+                        +e('p').info-title Телефон
+                        +e('p').info-text 
+                          +e.info-text(href="+74232055659") +7 (423) 205-56-59
+                      +e.info
+                        +e('p').info-title Электронная почта
+                        +e('p').info-text 
+                          +e.info-mail(href="mailto:info@cdm.com") info@cdm.com
+                      +e.info
+                        +e('p').info-title Часы работы
+                        +e('p').info-text 09:00 – 20:00 (GTM +10)
+
+                  +e('section').map-wrapper
+                    script(src="https://api-maps.yandex.ru/2.1/?lang=ru_RU")
+                    +e.map#map.js-contacts-map(data-center="54.444974:92.319000" data-office="43.096092:131.862398" data-locations="55.650145:37.539626, 59.927279:30.383296, 39.897851:116.357413")
+
+                  +b('section').feedback
+                    +e('p').title Обратная связь
+                    +e('p').subtitle Обратите внимание, все поля обязательны для заполнения.
+                    +e('form').form
+                      .common__row
+                        .common__cols
+                          .common__col
+                            .common__row
+                              label.common__label Имя
+                              input(type="text", data-req="req").common__input
+                            .common__row
+                              label.common__label Электронная почта
+                              input(type="text", data-req="req").common__input
+                          .common__col
+                            label.common__label Текст сообщения
+                            textarea(data-req="req").common__textarea
+                      .common__bottom
+                        +fakecheckbox()
+                        button(type="submit").common__submit.btn Отправить
+
+    include layout/__footer
+    include layout/__scripts

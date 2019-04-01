@@ -1,0 +1,126 @@
+.contacts
+  &__tabs
+    df()
+    flex-wrap wrap
+    ml -31px
+    w calc(100% + 31px)
+    @media $LandscapeMin
+      ml -13px
+      w calc(100% + 13px)
+  &__tab
+    ml 31px
+    mb 10px
+    @media $LandscapeMin
+      ml 13px
+  &__href
+    pos relative
+    z-index 1
+    color $dark
+    fontify 18px 500 20px
+    white-space nowrap
+    bb(1px, dotted, alpha($dark, .25))
+    @media $LandscapeMin
+      fontify 15px 500 18px
+    &:before
+      content ""
+      pos absolute
+      z-index -1
+      l -3px
+      r -3px
+      b 0
+      h 0px
+      bgc $red
+      transition .7s height
+    &:hover
+    &.active
+      border-color transparent
+    &.active
+      c white
+      &:before
+        h 100%
+  &__blocks
+    mt 40px
+    @media $lDesktopSmall
+      mt 30px
+  &__block
+    flex-wrap wrap
+    justify-content space-between
+    w calc(100% + 36px)
+    ml -36px
+    @media $lDesktopSmall
+      w calc(100% + 32px)
+      ml -32px
+    @media $LandscapeMin
+      w calc(100% + 16px)
+      ml -16px
+    &:not(.active)
+      dn()
+    &.active
+      df(flex-start, flex-start)
+  &__info
+    w calc(20% - 36px)
+    ml 36px
+    mb 37px
+    &_address
+      w calc(40% - 36px)
+    @media $desktopMedium 
+      w calc(50% - 32px)
+      ml 32px
+    @media $LandscapeMin
+      w calc(100% - 16px)
+      ml 16px
+      mb 16px
+    &-title
+      c $grey
+      fontify 15px 400 19px
+      mb 10px
+      @media $lDesktopSmall
+        fontify 14px 400 18px
+    &-text
+      c $dark
+      fontify 16px 400 26px
+      @media $lDesktopSmall
+        fontify 15px 400 25px
+    &-mail
+      c $dark
+      fontify 16px 400 26px
+      bb()
+      @media $lDesktopSmall
+        fontify 15px 400 25px
+  &__map
+    h 500px
+    &-wrapper
+      mt 35px 
+
+.feedback
+  mt 20px
+  bgc white
+  padding 42px calc(10% - 7px)
+  @media $LandscapeMax
+    padding 40px 0 100px
+  @media $LandscapeMin
+    padding 30px 0 80px
+  &:last-child
+    mb 140px
+    @media $LandscapeMax
+      mb 0
+  &__title
+    c $dark
+    fontify 44px 700 48px
+    mb 10px
+    @media $lDesktopSmall
+      fontify 36px 700 40px
+    @media $PortraitMax
+      fontify 30px 700 34px
+  &__subtitle
+    c $dark
+    fontify 16px 400 25px
+    mb 36px
+    @media $lDesktopSmall
+      fontify 15px 400 25px
+      mb 33px
+    span
+      font-size 18px
+      c $red
+  .common__textarea
+    h 128px
