@@ -1,0 +1,121 @@
+include bemto/bemto.pug
+include mixins/index
+
+doctype html
+html
+  head(lang="ru")
+    include layout/__head
+  body
+    include layout/__header
+  
+    nav.services__side
+      ul.services__side-list
+        li.services__side-item
+          aside.services__side-iconover
+            img(src="img/serv-small1.png").services__side-icon
+          .services__side-hrefs
+            .services__side-row
+              a(href="#").services__side-href Морская доставка
+        li.services__side-item
+          aside.services__side-iconover
+            img(src="img/serv-small2.png").services__side-icon
+          .services__side-hrefs
+            .services__side-row
+              a(href="#").services__side-href Авиадоставка
+        li.services__side-item
+          aside.services__side-iconover
+            img(src="img/serv-small3.png").services__side-icon
+          .services__side-hrefs
+            .services__side-row
+              a(href="#").services__side-href Автодоставка
+        li.services__side-item
+          aside.services__side-iconover
+            img(src="img/serv-small4.png").services__side-icon
+          .services__side-hrefs
+            .services__side-row
+              a(href="#").services__side-href ЖД доставка
+        li.services__side-item
+          aside.services__side-iconover
+            img(src="img/serv-small5.png").services__side-icon
+          .services__side-hrefs
+            .services__side-row
+              a(href="#").services__side-href Поиск поставщиков в Китае
+            .services__side-row
+              a(href="#").services__side-href Таможенное оформление
+        li.services__side-item
+          aside.services__side-iconover
+            img(src="img/serv-small6.png").services__side-icon
+          .services__side-hrefs
+            .services__side-row
+              a(href="#").services__side-href Бухгалтерские услуги
+            .services__side-row
+              a(href="#").services__side-href Юридические услуги
+
+    +b('main').main._white
+      .container
+        .h-wrapper
+          .h-col1
+          .h-col11.h-col_tablet-wide
+            +e('span').color
+            span.text__bg(style="background-image: url('img/services-bg.jpg')")
+            +b('section').breadcrumbs
+              +e.href(href="#") Главная
+              +e('span').delim / 
+              +e.href(href="#") Услуги
+              +e('span').delim / 
+            +e.content
+              h1 Таможенное оформление
+              +b('section').services
+                +e('section').top
+                  +e.cols
+                    +e.col
+                      +e('p').about Компания 
+                        span CDM Group
+                        |  предлагает услуги полного таможенного сопровождения грузов. С нами импорт или экспорт любого товара не вызовет никаких проблем. Воспользовавшись нашими услугами по таможенному оформлению, вы получите полный комплекс услуг, направленный на то, чтобы ваш товар максимально быстро и беспрепятственно был перевезен через границу.
+                    +e.col
+                      p Таможенное оформление – довольно сложная процедура, во время которой могут возникнуть разные непредвиденные ситуации. Неправильное оформление документов или отсутствие нужного сертификата может послужить причиной задержки товара на таможне.
+                      p Для успешного и быстрого решения вопросов, касающихся таможенного оформления необходимо воспользоваться услугами таможенных представителей.
+                  +e.order.btn(href="#") Заказать таможенное оформление
+      section.services__grey
+        .container
+          .h-wrapper
+            .h-col1
+            .h-col11.h-col_tablet-wide
+              .services__cols
+                .services__col
+                  p.services__grey-title Таможенные услуги компании CDM Group
+                  .services__grey-text
+                    ul
+                      li Cоставим и согласуем пакет документов для прохождения таможни;
+                      li классифицируем товары по ТН ВЭД;
+                      li оплатим все сборы в процессе таможенного декларирования;
+                      li получим документацию для оформления;
+                      li проконтролируем порядок прохождения процедур;
+                      li оформим внешнеэкономические договоры;
+                      li проведем операции по импорту-экспорту;
+                      li заполним транспортные документы.
+                .services__col
+                  .services__price
+                    p.services__price-title Стоимость услуг
+                    .services__price-text 
+                      p Стоимость таможенного оформления составляет от 15 000 руб. и зависит от количества поставок в месяц и дополнительных услуг.
+
+      section.services__cause
+        .container
+          .h-wrapper
+            .h-col1
+            .h-col11.h-col_tablet-wide
+              p.services__cause-title 8 причин заказать таможенное оформление у нас
+              ol.services__cause-list
+                li.services__cause-item Снижаем таможенные платежи на законном основании.
+                li.services__cause-item Лично участвуем в таможенном досмотре/осмотре
+                li.services__cause-item Формируем необходимый пакет документов в соответствии с требованиями ТК ЕАЭС
+                li.services__cause-item Оказываем законную помощь при взаиморасчетах с поставщиком товара
+                li.services__cause-item Предлагаем таможенное оформление груза как под свой, так и под Ваш контракт
+                li.services__cause-item Гарантируем неизменность таможенной ставки
+                li.services__cause-item Курируем возврат суммы обеспечения
+                li.services__cause-item С нами нет необходимости быть участником ВЭД
+              a(href="#").services__order.btn Заказать таможенное оформление
+
+    include layout/__footer
+    include layout/__scripts

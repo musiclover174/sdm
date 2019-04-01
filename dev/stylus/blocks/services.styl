@@ -1,4 +1,45 @@
 .services
+  &__side
+    pos fixed
+    z-index 3
+    right 0
+    t 50%
+    transform translateY(-50%)
+    @media $LandscapeMin
+      dn()
+    &-list
+      dfv()
+      w 75px
+    &-item
+      pos relative
+      df(center, flex-start)
+      l 0
+      size 311px 75px
+      bgc $blue
+      transition .7s left
+      &:nth-child(2n)
+        bgc $gblue
+      &:hover
+        l -236px
+    &-iconover
+      size 75px
+      df(center, center)
+    &-icon
+      max-height 90%
+      max-width 90%
+    &-hrefs
+      pl 5px
+    &-row
+      & + &
+        mt 8px
+    &-href
+      c white
+      fontify 14px 500 18px
+      border-bottom 1px solid alpha(white, .25)
+      transition .7s border-color
+      &:hover
+        border-color transparent
+
   &__list
     df(stretch, space-between)
     flex-wrap wrap
@@ -150,3 +191,150 @@
     transition .7s border-color
     &:hover
       border-color transparent
+  &__cols
+    df(stretch, space-between)
+    @media $LandscapeMax
+      align-items flex-start
+      justify-content flex-start
+      flex-direction column
+      pr 100px
+    @media $LandscapeMin
+      pr 0
+  &__col
+    w calc(50% - 18px)
+    &:last-child
+      pl 5%
+      pr 100px
+      @media $desktopMax
+        pl 0
+      @media $LandscapeMax
+        pr 0
+    @media $lDesktopSmall
+      w calc(50% - 16px)
+    @media $LandscapeMax
+      w 100%
+      & + &
+        mt 20px
+  &__top
+    pt 34px
+    pb 140px
+    @media $LandscapeMax
+      pb 100px
+  &__about
+    c white
+    fontify 24px 500 28px
+    @media $lDesktopSmall
+      fontify 20px 500 28px
+      pr 3%
+    @media $LandscapeMax
+      pr 0
+    span
+      c $red
+  &__order
+    mt 43px
+  &__grey
+    pos relative
+    z-index 1
+    c $dark
+    padding 89px 0
+    &:before
+      content ""
+      pos absolute
+      z-index -1
+      t 0
+      l 0
+      size 100%
+      bgc #f6f6fa
+    & ^[0]__cols
+      align-items center
+    &-title
+      fontify 44px 700 48px
+      mb 32px
+      @media $lDesktopSmall
+        fontify 36px 700 40px
+      @media $PortraitMax
+        fontify 30px 700 34px
+    &-text
+      max-width 570px
+  &__price
+    c white
+    dfv(flex-start, center)
+    size 456px 449px
+    background url('../i/price-bg.png') no-repeat center
+    padding 0 58px
+    @media $desktopMedium
+      size 412px 406px
+      background-size cover
+    @media $LandscapeMax
+      size 100% auto
+      background none
+      c $dark
+      padding 0
+      mt 30px
+    &-title
+      fontify 30px 700 34px
+      @media $lDesktopSmall
+        fontify 24px 700 30px
+    &-text
+      mt 18px
+  &__cause
+    padding 130px 0
+    @media $LandscapeMax
+      padding 90px 0
+    &-title
+      fontify 44px 700 48px
+      mb 43px
+      max-width 720px
+      @media $lDesktopSmall
+        fontify 36px 700 40px
+      @media $PortraitMax
+        fontify 30px 700 34px
+    &-list
+      df()
+      flex-wrap wrap
+      max-width 1108px
+      ml -36px
+      mb -36px
+      w calc(100% + 36px)
+      counter-reset myCounter
+      @media $lDesktopSmall
+        ml -32px
+        w calc(100% + 32px)
+      @media $LandscapeMax
+        max-width 800px
+        pr 100px
+      @media $LandscapeMin
+        max-width inherit
+        pr 0
+    &-item
+      pos relative
+      w calc(100% / 3 - 36px)
+      ml 36px
+      mb 44px
+      pl 80px
+      fontify 16px 400 26px
+      @media $lDesktopSmall
+        fontify 15px 400 25px
+        w calc(100% / 3 - 32px)
+        ml 32px
+        mb 40px
+      @media $LandscapeMax
+        w calc(50% - 32px)
+      @media $PortraitMax
+        w calc(100% - 32px)
+        min-height 48px
+      &:before
+        counter-increment myCounter
+        content counter(myCounter)
+        pos absolute
+        l 0
+        t -4px
+        text-align center
+        fontify 24px 500 58px
+        size 60px 58px
+        background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA6CAMAAADbe8pdAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAk1BMVEW2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyr///8MHe8TAAAAL3RSTlMAAUzDBV3TC27gE3/rgBQfkPSRLKL6PLP+TcRe1G/h4nCB7O2S9S2j+z20X9VOxe6XyQgAAAABYktHRDCu3C3kAAAACXBIWXMAAAsSAAALEgHS3X78AAAAB3RJTUUH4wQBDg4CaytjgQAAAQRJREFUSMftl8cWgjAUBUFRLEDsBhFQwULR/P/fSYIVSYOdJ7Of1V28eZpGR+90ux1da4LR66OCfs+QVs3BED0YDkwpdTS20AeW7QirYDJFFaYzIKTOF0tUw3Ix56qrNUQU4HrFMnV3g5hsXNpyhrdFXLZe3XKmH/BVTLirLufsD2IqJtp/Lgfio7iKOcbP5U7ni5yKuZxPhZqkUF7FwDTRmpklSlaykpWsZCX/t9zqxLY67i2zogyaSFz9DhqSUrtQTP1NKRJxWc5X84yW3/qVk4+3KzP8WeFKtmmWzK9t2IBZ41gny9lfKXqQeBPIcu8IDny5B4UsV+Z3fWDzKcKfnvaYOzLt5FtMaAYZAAAAAElFTkSuQmCC') no-repeat center
+        @media $lDesktopSmall
+          fontify 20px 500 58px
+          t -6px
+        @media $PortraitMax
+          t -17px
