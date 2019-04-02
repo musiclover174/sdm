@@ -7723,6 +7723,7 @@ h1 + .reviews {
 }
 .contacts__map {
   height: 500px;
+  max-height: 60vh;
 }
 .contacts__map-wrapper {
   margin-top: 35px;
