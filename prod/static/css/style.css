@@ -4596,7 +4596,6 @@ html:not(.touchevents) .burger:not(.open):hover html:not(.touchevents) .burger-m
 }
 body.burgeropen {
   overflow: hidden;
-  position: fixed;
   width: 100%;
 }
 body.burgeropen .menu {
@@ -6119,7 +6118,7 @@ div[class^="table-scroller"] {
   content: "";
   position: absolute;
   z-index: 1;
-  left: 390px;
+  left: 366px;
   top: -95%;
   padding-top: 132%;
   width: 100%;
@@ -6134,7 +6133,8 @@ div[class^="table-scroller"] {
 @media (max-width: 1600px) {
   .types__item:before {
     top: -115%;
-    left: 430px;
+    left: 403px;
+    padding-top: 165%;
   }
 }
 @media (max-width: 1400px) {
@@ -6146,7 +6146,6 @@ div[class^="table-scroller"] {
   .types__item:before {
     left: 320px;
     top: -85%;
-    padding-top: 142%;
   }
 }
 @media (max-width: 1170px) {
