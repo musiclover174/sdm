@@ -12,7 +12,7 @@ import Sticky from './modules/sticky';
 document.addEventListener('DOMContentLoaded', () => {
   const headerEl = qs('.js-header');
   window.addEventListener('scroll', () => {
-    if (window.scrollY > window.innerHeight / 3) {
+    if (window.scrollY || window.pageYOffset > window.innerHeight / 3) {
       headerEl.classList.add('fixed');
     } else {
       headerEl.classList.remove('fixed');

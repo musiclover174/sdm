@@ -7464,6 +7464,11 @@ h1 + .reviews {
   margin-bottom: 36px;
   width: calc(100% / 3 - 36px);
 }
+@media (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .gallery__elem {
+    margin-right: -1px;
+  }
+}
 @media (max-width: 1600px) {
   .gallery__elem {
     margin-left: 32px;

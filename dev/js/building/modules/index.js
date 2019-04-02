@@ -17,8 +17,9 @@ export default class Index {
     const logoEl = qs(this.logoClass);
     const bannerHeight = parseInt(getComputedStyle(qs('.js-banner')).height, 10);
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 0) {
-        const scrollPerc = (bannerHeight - window.scrollY) / bannerHeight;
+      const wScrollY = window.scrollY || window.pageYOffset;
+      if (wScrollY > 0) {
+        const scrollPerc = (bannerHeight - wScrollY) / bannerHeight;
         const nTop = startTop - (startTop - endTop) * (1 - scrollPerc);
         if (scrollPerc > 0) {
           logoEl.style.top = `${nTop}%`;
