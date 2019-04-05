@@ -4,11 +4,13 @@ body:not(.index)
     z-index 1
     bgc #f6f6fa
     pt 210px
+    @media $desktopMax
+      pt 200px
     @media $LandscapeMax
-      pt 170px
+      pt 127px
       bgc white
     @media $Mobile370
-      pt 130px
+      pt 110px
 
 .text
   bgc white
@@ -17,8 +19,10 @@ body:not(.index)
     pb 134px
     @media $LandscapeMax
       pb 0
+  @media $lDesktopSmall
+    pb 93px
   @media $LandscapeMax
-    padding 0 0 70px
+    padding 0 0 59px
     bgc transparent
     max-width 750px
   &_wide
@@ -62,6 +66,8 @@ body:not(.index)
       fontify 48px 700 52px
     @media $PortraitMax
       fontify 36px 700 40px
+    @media $PortraitMedium
+      fontify 30px 700 34px
   h2:not([class])
     fontify 44px 700 48px
     margin 63px 0 32px
@@ -69,21 +75,25 @@ body:not(.index)
       fontify 36px 700 40px
     @media $PortraitMax
       fontify 30px 700 34px
+    @media $PortraitMedium
+      fontify 24px 700 28px
   h3:not([class]),
   h4:not([class])
     fontify 30px 700 34px
     margin 66px 0 35px
     @media $lDesktopSmall
       fontify 24px 700 30px
+    @media $PortraitMedium
+      fontify 20px 700 24px
   iframe:not([class]),
   img:not([class])
     margin 7px 0
     max-width 100%
   ul:not([class])
     list-style  none
-    margin 19px 0 18px 14px
+    margin 19px 0 18px
   ul:not([class]) li
-    pl 25px
+    pl 30px
     pos relative
     fontify 16px 400 26px
     @media $lDesktopSmall
@@ -91,16 +101,16 @@ body:not(.index)
   ul:not([class]) > li:before
     content ""
     pos absolute
-    l 12px
-    t 9px
-    size 5px 14px
-    background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAOCAMAAADQdiYUAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEW2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyq2Kyr///9xwYqVAAAAE3RSTlMAtJsi9/01gssCCN5nddlogSE2Q+C6LgAAAAFiS0dEFJLfyTUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfjAxsNBQt+wddcAAAAEGNhTnYAAAARAAAAFAAAAAgAAAAGEpilegAAADRJREFUCNdjYBRmYmBgYGZhZQNS7MIcnAwMXNzCPEAOrzAfmM3PwCAAEhdkYRViYICoxwsATIIBYycmq1QAAAAASUVORK5CYII=') no-repeat center
+    l 0
+    t 14px
+    size 19px 1px
+    bgc $red
   ol:not([class])
     list-style none
     margin -11px 0 20px
     counter-reset myCounter
   ol:not([class]) li
-    pl 25px
+    pl 30px
     pos relative
     fontify 16px 400 26px
   ol:not([class]) > li:before
@@ -147,9 +157,9 @@ body:not(.index)
         border-left 1px solid alpha(#eaebf3, .05)
     td
       c black
-      padding 13px 29px
+      padding 17px 24px
       fontify 16px 400 26px
-      text-align center
+      text-align left
       border 1px solid #eaebf3
       @media $lDesktopSmall
         fontify 15px 400 25px

@@ -1,12 +1,12 @@
 .info
   padding 88px 0 93px
   @media $lDesktopSmall
-    padding 48px 0 59px
+    padding 48px 0 93px
   @media $desktopMin
     .h-col1
       dn()
     .h-wrapper
-      pl calc(8.333333333333332% - 13px)
+      pl calc(8.333333333333332%)
       flex-direction column-reverse
   @media $LandscapeMin
     .h-wrapper
@@ -29,16 +29,31 @@
       bb()
       @media $lDesktopSmall
         fontify 24px 500 26px
-      @media $dekstop1142
+      @media $desktopMin
         fontify 42px 700 46px
+      @media $LandscapeMin
+        fontify 38px 700 42px
     &-list
       mt 42px
       pr 20px
       @media $lDesktopSmall
         mt 40px
+      @media $desktopMin
+        df(flex-start, space-between)
+        pr 0
+      @media $PortraitMedium
+        flex-direction column
     &-item
+      @media $desktopMin
+        w calc(50% - 18px)
+      @media $PortraitMedium
+        w 100%
       & + &
         mt 38px
+        @media $desktopMin
+          mt 0
+        @media $PortraitMedium
+          mt 30px
     &-date
       c $grey
       fontify 15px 400 19px
@@ -57,7 +72,7 @@
         w 100%
         flex 0 0 100%
         max-width none
-        mt 60px
+        mt 100px
     &-title
       c $dark
       fontify 60px 700 64px
@@ -67,6 +82,8 @@
         fontify 48px 700 52px
       @media $dekstop1142
         fontify 42px 700 46px
+      @media $LandscapeMin
+        fontify 38px 700 42px
     &-tabs
       df()
       flex-wrap wrap

@@ -3,9 +3,11 @@
     pos fixed
     z-index 3
     right 0
-    t 50%
+    t calc(50% + 54px)
     transform translateY(-50%)
     @media $LandscapeMin
+      dn()
+    @media (max-height: 580px) 
       dn()
     &-list
       dfv()
@@ -13,26 +15,37 @@
     &-item
       pos relative
       df(center, flex-start)
-      l 0
-      size 311px 75px
+      r 0
+      h 100%
       bgc $blue
       transition .7s left
       &:nth-child(2n)
         bgc $gblue
-      &:hover
-        l -236px
+      &:hover ^[-1]-hrefs
+        max-width 280px
     &-iconover
       size 75px
+      flex-shrink 0
       df(center, center)
     &-icon
       max-height 90%
       max-width 90%
     &-hrefs
-      pl 5px
+      dfv(flex-start, center)
+      pos absolute
+      r 100%
+      t 0
+      h 100%
+      max-width 0
+      transition .7s max-width
+      overflow hidden
+      bgc inherit
     &-row
+      padding 0 25px
       & + &
         mt 8px
     &-href
+      white-space nowrap
       c white
       fontify 14px 500 18px
       border-bottom 1px solid alpha(white, .25)
@@ -59,6 +72,9 @@
     min-height 311px
     @media $lDesktopSmall
       w calc(50% - 16px)
+    @media $desktopMax
+      min-height 270px
+      pb 42px
     &:not(:nth-child(1)):not(:nth-child(2))
       mt 36px
       @media $lDesktopSmall
@@ -182,6 +198,8 @@
         fontify 36px 700 40px
       @media $PortraitMax
         fontify 30px 700 34px
+      @media $PortraitMedium
+        fontify 24px 700 28px
   &__toall
     ib()
     mt 45px
@@ -252,8 +270,12 @@
       mb 32px
       @media $lDesktopSmall
         fontify 36px 700 40px
+      @media $desktopMax
+        max-width 520px
       @media $PortraitMax
         fontify 30px 700 34px
+      @media $PortraitMedium
+        fontify 24px 700 28px
     &-text
       max-width 570px
   &__price
@@ -289,6 +311,8 @@
         fontify 36px 700 40px
       @media $PortraitMax
         fontify 30px 700 34px
+      @media $PortraitMedium
+        fontify 24px 700 28px
     &-list
       df()
       flex-wrap wrap
@@ -300,9 +324,10 @@
       @media $lDesktopSmall
         ml -32px
         w calc(100% + 32px)
+      @media $desktopMax
+        pr 100px
       @media $LandscapeMax
         max-width 800px
-        pr 100px
       @media $LandscapeMin
         max-width inherit
         pr 0

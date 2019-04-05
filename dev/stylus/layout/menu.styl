@@ -2,14 +2,15 @@
   @media $desktopMin
     pos fixed
     z-index 11
-    l 0
+    t 0
     visibility hidden
-    t 100%
+    l -30px
     opacity 0
     padding 34px 32px
     w 100%
     h 100%
-    transition .7s visibility, .7s top, .7s opacity
+    pointer-events none
+    transition .7s visibility, .7s left, .7s opacity
     overflow-y auto
   @media $PortraitMin
     padding 40px 15px
@@ -36,11 +37,12 @@
         .header__order
           db()
           ml 0
-    & + &
+    &:not(&_tablet) + &
       ml 31px
       @media $desktopMedium
         ml 15px
-      @media $desktopMin
+    @media $desktopMin
+      & + &
         ml 0
         mt 20px
   &__href
@@ -107,11 +109,21 @@
     &-href
       db()
       pos relative
+      z-index 1
       color white
       fontify 14px 400 18px
       padding 8px 24px 9px
       bgc $red
       transition .7s background
+      &:before
+        content ""
+        pos absolute 
+        z-index -1
+        l 0
+        t 0
+        size 0% 100%
+        bgc $blue
+        transition .7s width
       @media $desktopMin
         fontify 18px 400 24px
         padding 0
@@ -119,7 +131,9 @@
         transition .7s color
       &:hover,
       &_active
-        bgc $blue
+        // bgc $blue
+        &:before
+          w 100%
         @media $desktopMin
           c $red
   &__search
@@ -155,7 +169,7 @@
     pos fixed
     l 0
     t 0
-    transform translateY(100%)
+    transform translateX(-100%)
     transition 1s transform, .7s opacity
     will-change transform
     opacity .2
@@ -174,7 +188,7 @@
       t 0
       r 0
       w 25px
-      h 1px
+      h 2px
       bgc white
       transition .5s width, .5s background, .5s transform, .5s top
     &:after
@@ -183,7 +197,7 @@
       b 0
       r 0
       w 25px
-      h 1px
+      h 2px
       bgc white
       transition .5s width, .5s background, .5s transform, .5s top  
     &-meat
@@ -192,7 +206,8 @@
       t 50%
       r 0
       w 25px
-      h 1px
+      h 2px
+      mt -1px
       bgc white
       transition .5s width, .5s background, .5s transform, .5s top  
     &.open
@@ -204,7 +219,7 @@
         opacity 0
       & + ^[0]__shadow
         opacity 1
-        transform translateY(0)
+        transform translateX(0)
     &.open.remove
       &:before
         animation burger-top-invert 1s ease-in-out forwards
@@ -287,5 +302,6 @@ body.burgeropen
   .menu
     visibility visible
     opacity 1
-    t 0
+    l 0
+    pointer-events all
     transition-delay .7s

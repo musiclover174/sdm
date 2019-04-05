@@ -16,7 +16,7 @@
   visibility hidden
   transform scale(.9)
   will-change transform
-  transition .7s .7s transform, .7s .7s opacity
+  transition .7s transform, .7s opacity
   @media $lDesktopSmall
     max-width 414px
   @media $PortraitMedium
@@ -41,26 +41,20 @@
     opacity 1
     visibility visible
     transform scale(1)
+    transition .7s .7s transform, .7s .7s opacity
   &__over
-    // dfv(center, center)
-    padding 30px 0
     t 0
     l 0
     r 0
     b 0
     pos fixed
     overflow hidden
-    text-align center
-    z-index -1
+    z-index 1000
+    transform translateY(-100%)
+    will-change transform
+    transition 0s 1.4s transform
     @media $PortraitMedium
       padding 60px 0 30px
-    &:before
-      content ""
-      display inline-block
-      font-size 0
-      height 100%
-      vertical-align middle
-      width 0
   &__bg
     pos fixed
     z-index 0
@@ -70,6 +64,28 @@
     w 0
     bgc $gblue
     opacity 0
+    transition .7s .2s opacity, .7s .2s width
+  &__inner
+    pos absolute
+    b 0
+    l 0
+    r 0
+    t 0
+  &__stage
+    padding 60px 0 30px
+    ps absolute
+    l 0
+    t 0
+    h 100%
+    text-align center
+    overflow hidden
+    &:before
+      content ""
+      display inline-block
+      font-size 0
+      height 100%
+      vertical-align middle
+      width 0
   &-show
     oh()
     & ^[0]__bg
@@ -79,8 +95,10 @@
       @media $desktopMin
         opacity 1
     & ^[0]__over
+      transform translateY(0)
+      transition 0s 0s transform
+    & ^[0]__stage
       overflow-y scroll
-      z-index 1000
   &__title
     pos relative
     z-index 1
@@ -148,8 +166,15 @@
       r 25px
       size 21px 21px
       background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAQAAAADHm0dAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfjAx0OLApqrZmkAAABCklEQVQoz43SSytFURgG4O/sjI5bJo4YqFMM+CMyZKAoTJQM/DJlQs5EmSGRe0qKiFCMlIF6DA611z7b5VuDtXp7an3rEkIIbWY1POPRumnZV54bzWnUibQO1MvokFdcmtcvDFhwhcciDm1OsaY9F3dqYC9tI8zjQrWwXbdrTKV0E3Oth7CI1ZQ+oa+EDuI2pSiBoYq3fJLFc0QMRGv1RsRLPsjiKCLGSuh4RGwniRlcltzALSbSXjOHaOjKxT22sKtSfK0RT7ixpK5D3bI7cKTW+geG7Rf+wI5jnOXx9yIzZc2DD/dWTKroc57i8POopfg3WsC/0wT/RUPNWRP/Tb/xQUX8o2qxEe+fgqjc9d9GWDMAAAAASUVORK5CYII=') no-repeat center
+      transition .7s background
+      &:hover
+        background-image url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAMAAACeyVWkAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAA4VBMVEXOAAT////OAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAATOAAT///9JP4AKAAAASXRSTlMAAAReuOvptVoCK9POIiXv22AaG2Xd1LQLDcvYCg/gV71faK/qGB/j9SC7Y2qqW1LQDhHAyQEq4Qxu5NEXJs3I0tXn/OasU9bGPxNvEQAAAAFiS0dEAf8CLd4AAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfjBAQLBAKg0bnSAAAAwklEQVQY023Q5Q7CUAwF4A6GDDbcbbi7y3A97/9CDOguIeP86c2XNrktEZHDKbvg9ngV803SK2b1+fGJqn01EEQoHKFoLA63ZqkjgWTqNUppGRmFNYxsjj7JF6CzFlEiK2VUWKuoCa2jwQoIpByaojcqtCV62+gI7aLH2kdI/KGBAasyhDx643iC6czabV7FoqsttdUa2BjiDtsd32F/wNGwlBQ9eTpfrrdZ7c5MPzGY6S/TXyYbH022qWSyalfJUB9PcHsfZiIMrwcAAAAASUVORK5CYII=')
       @media $PortraitMedium
         r 0
 
 .no-touchevents .popup-show
   mr 17px
+  .header
+    pr 17px
+  &.index
+    overflow hidden

@@ -16,6 +16,8 @@
       fontify 36px 700 40px
     @media $PortraitMax
       fontify 30px 700 34px
+    @media $PortraitMedium
+      fontify 24px 700 28px
   &__item
     &:not(&_wide)
       df(flex-start, space-between)
@@ -83,7 +85,8 @@
       @media $lDesktopSmall
         fontify 14px 400 18px
       @media $PortraitMax 
-        dn()
+        ^[-1]:not(^[-1]_wide) &
+          dn()
       & + ^[-1]-date
         mt 9px
     &-date

@@ -42,6 +42,16 @@
     background-size cover
     @media $LandscapeMax
       opacity .35
+  &__layer
+    pos absolute
+    l 0
+    t 0
+    bgc $red
+    z-index -3
+    size 100%
+    &_blue
+      z-index -2
+      bgc $blue
   @media $lDesktopSmall
     .h-wrapper
       pos relative

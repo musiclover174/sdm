@@ -13,6 +13,8 @@ html
 
       +b('section').banner.js-banner
         +e('span').bg(style="background-image: url('img/banner.jpg')")
+        +e('span').layer
+        +e('span').layer._blue
         section.container
           section.h-wrapper
             .h-col1
@@ -32,8 +34,13 @@ html
           section.h-wrapper
             .h-col1
             +e('aside').about.h-col3
-              +e('p').about-title Надежно. Выгодно. 
-                span Быстро.
+              +e('p').about-title
+                span 
+                  i Надежно.
+                span 
+                  i Выгодно. 
+                span 
+                  i Быстро.
               +e.about-text
                 p Для успешного решения задач наших клиентов мы собрали команду из опытных специалистов.
                 p Большинство сотрудников CDM Group работало как в логистических провайдерах, так и в штате таможенных органах. Это позволяет нам глубже понимать логистические процессы и обеспечивать клиентам максимальную оперативность и высокий уровень сервиса.

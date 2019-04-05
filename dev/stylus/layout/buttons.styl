@@ -12,6 +12,8 @@
   @media $lDesktopSmall
     fontify 14px 500 41px
     padding 0 24px
+  @media $PortraitMin
+    padding 0 16px
   &:before
     content ""
     pos absolute
@@ -21,5 +23,5 @@
     will-change transform
     transition .7s transform, .7s background-color
   &:hover:before
-    transform skewX(-8deg)
+    transform skewX(-30deg)
     bgc $dred

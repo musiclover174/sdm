@@ -1,5 +1,8 @@
 .news
   &-side
+    w 100%
+    &-wrapper
+      w 100%
     &__title
       fontify 48px 700 48px
       mb 31px
@@ -129,11 +132,13 @@
         w 100%
     &-content
       w calc(56% - 18px)
-      pt 15px
+      mt -8px
       @media $lDesktopSmall
         w calc(56% - 16px)
+        mt -6px
       @media $LandscapeMax
         w 100%
+        mt 0
       @media $LandscapeMax
         pt 19px
     &-date

@@ -17,6 +17,10 @@ include ../mixins/index
         +e.phone(href="tel:88001000159") 8-800-1000-159
         +b('nav').menu
           +e('ul').list
+            +e.item._tablet
+              .header__lang
+                a(href="#").header__lang-href Eng
+                a(href="#").header__lang-href Chn
             +e.item
               +e.href._havesub._active(href="#") Компания
               +e('ul').sublist
@@ -58,10 +62,6 @@ include ../mixins/index
             +e.item._search
               +e.search(type="button", aria-label="Поиск", data-popup, data-src="#search")
                 span Поиск
-            +e.item._tablet
-              .header__lang
-                a(href="#").header__lang-href Eng
-                a(href="#").header__lang-href Chn
             +e.item._tablet
               +btn('Отследить груз', true, '#track')(class="header__btn btn")
         +btn('Отследить груз', true, '#track')(class="header__btn btn")

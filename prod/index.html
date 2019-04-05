@@ -34,6 +34,10 @@
             href="tel:88001000159">8-800-1000-159</a>
           <nav class="menu">
             <ul class="menu__list">
+              <li class="menu__item menu__item_tablet">
+                <div class="header__lang"><a class="header__lang-href" href="#">Eng</a><a class="header__lang-href"
+                    href="#">Chn</a></div>
+              </li>
               <li class="menu__item"><a class="menu__href menu__href_havesub menu__href_active" href="#">Компания</a>
                 <ul class="menu__sublist">
                   <li class="menu__sublist-item menu__sublist-item_spacer">
@@ -85,10 +89,6 @@
                 </button>
               </li>
               <li class="menu__item menu__item_tablet">
-                <div class="header__lang"><a class="header__lang-href" href="#">Eng</a><a class="header__lang-href"
-                    href="#">Chn</a></div>
-              </li>
-              <li class="menu__item menu__item_tablet">
                 <button class="header__btn btn" data-popup data-src="#track" type="button"
                   arial-label="Отследить груз">Отследить груз</button>
               </li>
@@ -106,7 +106,9 @@
     </section>
   </header>
   <main class="main" role="main">
-    <section class="banner js-banner"><span class="banner__bg" style="background-image: url('img/banner.jpg')"></span>
+    <section class="banner js-banner"><span class="banner__bg"
+        style="background-image: url('img/banner.jpg')"></span><span class="banner__layer"></span><span
+        class="banner__layer banner__layer_blue"></span>
       <section class="container">
         <section class="h-wrapper">
           <div class="h-col1"></div>
@@ -124,7 +126,8 @@
         <section class="h-wrapper">
           <div class="h-col1"></div>
           <aside class="types__about h-col3">
-            <p class="types__about-title">Надежно. Выгодно. <span>Быстро.</span>
+            <p class="types__about-title"><span> <i>Надежно.</i></span><span> <i>Выгодно. </i></span><span>
+                <i>Быстро.</i></span>
             </p>
             <div class="types__about-text">
               <p>Для успешного решения задач наших клиентов мы собрали команду из опытных специалистов.</p>
@@ -394,55 +397,59 @@
   </footer>
   <div class="hidden-block">
     <div class="popup__over"><span class="popup__bg js-popbg"></span>
-      <div class="popup popup_search" id="search">
-        <button class="popup__close js-popclose" type="button" title="Закрыть">
-        </button>
-        <form class="popup__form">
-          <input class="popup__search-input" type="text" data-req="req" placeholder="Поиск по сайту">
-          <button class="popup__search-sbm" type="submit" aria-label="Найти"></button>
-        </form>
-      </div>
-      <div class="popup" id="feed">
-        <button class="popup__close js-popclose" type="button" title="Закрыть">
-        </button>
-        <p class="popup__title">Обратная связь
-        </p>
-        <p class="popup__hint">Обратите внимание – все поля обязательны для заполнеия.
-        </p>
-        <form class="popup__form">
-          <div class="common__row">
-            <label class="common__label">ФИО</label>
-            <input class="common__input" type="text" data-req="req">
+      <div class="popup__inner">
+        <div class="popup__stage">
+          <div class="popup popup_search" id="search">
+            <button class="popup__close js-popclose" type="button" title="Закрыть">
+            </button>
+            <form class="popup__form">
+              <input class="popup__search-input" type="text" data-req="req" placeholder="Поиск по сайту">
+              <button class="popup__search-sbm" type="submit" aria-label="Найти"></button>
+            </form>
           </div>
-          <div class="common__row">
-            <label class="common__label">Электронная почта</label>
-            <input class="common__input" type="text" data-req="req" data-type="email">
+          <div class="popup" id="feed">
+            <button class="popup__close js-popclose" type="button" title="Закрыть">
+            </button>
+            <p class="popup__title">Обратная связь
+            </p>
+            <p class="popup__hint">Обратите внимание – все поля обязательны для заполнеия.
+            </p>
+            <form class="popup__form">
+              <div class="common__row">
+                <label class="common__label">ФИО</label>
+                <input class="common__input" type="text" data-req="req">
+              </div>
+              <div class="common__row">
+                <label class="common__label">Электронная почта</label>
+                <input class="common__input" type="text" data-req="req" data-type="email">
+              </div>
+              <div class="common__row">
+                <label class="common__label">Текст сообщения</label>
+                <textarea class="common__textarea" data-req="req"></textarea>
+              </div>
+              <div class="common__row">
+                <div class="fakecheckbox">
+                  <input class="fakecheckbox__truecheck" type="checkbox" value="" name="agreement2" checked
+                    id="agreement2">
+                  <label class="fakecheckbox__label" for="agreement2">Даю согласие на обработку <a
+                      href="#">персональных&nbsp;данных</a></label>
+                </div>
+              </div>
+              <div class="common__row">
+                <button class="common__submit btn" type="submit">Отправить</button>
+              </div>
+            </form>
           </div>
-          <div class="common__row">
-            <label class="common__label">Текст сообщения</label>
-            <textarea class="common__textarea" data-req="req"></textarea>
+          <div class="popup" id="text">
+            <button class="popup__close js-popclose" type="button" title="Закрыть">
+            </button>
+            <p class="popup__title">Сообщение отправлено
+            </p>
+            <p class="popup__subtitle">Ваше сообщение успешно отправлено
+            </p>
+            <button class="popup__close-btn btn js-popclose" type="button" arial-label="Закрыть">Закрыть</button>
           </div>
-          <div class="common__row">
-            <div class="fakecheckbox">
-              <input class="fakecheckbox__truecheck" type="checkbox" value="" name="agreement2" checked id="agreement2">
-              <label class="fakecheckbox__label" for="agreement2">Даю согласие на обработку <a
-                  href="#">персональных&nbsp;данных</a></label>
-            </div>
-          </div>
-          <div class="common__row"><img src="img/captcha.png" style="max-width: 100%;"></div>
-          <div class="common__row">
-            <button class="common__submit btn" type="submit">Отправить</button>
-          </div>
-        </form>
-      </div>
-      <div class="popup" id="text">
-        <button class="popup__close js-popclose" type="button" title="Закрыть">
-        </button>
-        <p class="popup__title">Сообщение отправлено
-        </p>
-        <p class="popup__subtitle">Ваше сообщение успешно отправлено
-        </p>
-        <button class="popup__close-btn btn js-popclose" type="button" arial-label="Закрыть">Закрыть</button>
+        </div>
       </div>
     </div>
   </div>

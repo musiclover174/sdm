@@ -24,7 +24,7 @@ export default class Contacts {
     this.myMap = new ymaps.Map(this.el, {
       center: [parseFloat(pinCoord[0]), parseFloat(pinCoord[1])],
       zoom: 3,
-      controls: ['smallMapDefaultSet'],
+      controls: ['zoomControl'],
     });
 
     this.myMap.behaviors.disable('scrollZoom');

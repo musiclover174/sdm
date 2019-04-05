@@ -30,11 +30,37 @@
       @media $desktopMin
         ml 0
       @media $LandscapeMin
-        fontify 34px 700 38px
+        fontify 38px 700 42px
       @media $PortraitMax
         max-width 300px
+      i
+        pos relative
+        font-style normal
+        @media $LandscapeMaxFrom
+          b 100%
+          transition 1s bottom
+          /.h-anim[visible] &
+            b 0
       span
-        c $red
+        @media $lDesktopSmallFrom
+          h 64px
+        @media $dekstop1142From
+          h 52px
+        @media $LandscapeMaxFrom
+          pos relative
+          db()
+          oh()
+          h 46px
+        &:nth-child(1)
+          i
+            transition-delay .1s
+        &:nth-child(2)
+          i
+            transition-delay .2s
+        &:nth-child(3)
+          c $red
+          i
+            transition-delay .3s
     &-text
       pr 20px
   &__list
@@ -85,7 +111,7 @@
       bgc white
       transform rotate(64deg)
       transform-origin 0 0
-      transition 2s width
+      transition .7s width
       @media $lDesktopSmall
         t -115%
         l 403px
