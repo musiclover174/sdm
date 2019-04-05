@@ -6204,9 +6204,12 @@ div[class^="table-scroller"] {
     bottom: 0;
   }
 }
-@media (min-width: 1601px) {
+@media (min-width: 1001px) {
   .types__about-title span {
-    height: 64px;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    height: 46px;
   }
 }
 @media (min-width: 1143px) {
@@ -6214,12 +6217,9 @@ div[class^="table-scroller"] {
     height: 52px;
   }
 }
-@media (min-width: 1001px) {
+@media (min-width: 1601px) {
   .types__about-title span {
-    position: relative;
-    display: block;
-    overflow: hidden;
-    height: 46px;
+    height: 64px;
   }
 }
 .types__about-title span:nth-child(1) i {
