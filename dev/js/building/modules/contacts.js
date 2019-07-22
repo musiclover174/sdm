@@ -23,7 +23,7 @@ export default class Contacts {
 
     this.myMap = new ymaps.Map(this.el, {
       center: [parseFloat(pinCoord[0]), parseFloat(pinCoord[1])],
-      zoom: 3,
+      zoom: 17,
       controls: ['zoomControl'],
     });
 
@@ -37,7 +37,7 @@ export default class Contacts {
         [parseFloat(coords[0]), parseFloat(coords[1])], {}, {
           iconLayout: 'default#image',
           iconImageSize: [38, 16],
-          iconImageHref: './img/pin.png',
+          iconImageHref: '/img/pin.png',
           iconImageOffset: [-32, -8],
         },
       );
@@ -48,7 +48,7 @@ export default class Contacts {
       [parseFloat(officeCoord[0]), parseFloat(officeCoord[1])], {}, {
         iconLayout: 'default#image',
         iconImageSize: [38, 16],
-        iconImageHref: './img/office-pin.png',
+        iconImageHref: '/img/office-pin.png',
         iconImageOffset: [-32, -8],
       },
     );
@@ -69,7 +69,7 @@ export default class Contacts {
               qs(`${this.blockClass}[data-id="${btn.getAttribute('data-id')}"]`).classList.add('active');
               if (t.myMap) {
                 const btnCoords = btn.getAttribute('data-coords').split(':');
-                t.myMap.setCenter([parseFloat(btnCoords[0]), parseFloat(btnCoords[1])], 18);
+                t.myMap.setCenter([parseFloat(btnCoords[0]), parseFloat(btnCoords[1])], 17);
               }
             }, 'flex');
           });
